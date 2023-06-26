@@ -8,5 +8,5 @@ Taken from [Microsoft's Python Type Stubs repo](https://github.com/microsoft/pyt
 ## Installation
 
 ```
-pip install .
+pip install matplotlib-stubs
 ```
