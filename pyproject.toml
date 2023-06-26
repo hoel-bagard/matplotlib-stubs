@@ -21,7 +21,7 @@ classifiers = [
 ]
 license = {text = "MIT"}
 dynamic = ["version"]
-dependencies = ["matplotlib"]
+dependencies = ["matplotlib>=3.0"]
 requires-python = ">=3.8"
 packages = [
     { "include" = "matplotlib-stubs"}
