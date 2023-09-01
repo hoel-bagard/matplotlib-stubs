@@ -2,9 +2,10 @@ import functools
 from collections.abc import Callable, Iterator, Mapping
 from email.errors import NonPrintableDefect
 from re import Pattern
-from typing import Literal
+from typing import Literal, overload
 
 import numpy as np
+import numpy.typing as npt
 from matplotlib._typing import *
 
 from .scale import AsinhScale, FuncScale, LogScale, SymmetricalLogScale
@@ -54,13 +55,21 @@ class Colormap:
     name: str
     N: int
     colorbar_extend: bool
-    def __init__(self, name: str, N:int=256) -> None: ...
+    def __init__(self, name: str, N: int = 256) -> None: ...
+    @overload
     def __call__(
         self,
-        X: float | int | np.ndarray | Scalar,
+        X: int | float,
+        alpha: float | None,
+        bytes: bool = False,
+    ) -> RGBAColor: ...
+    @overload
+    def __call__(
+        self,
+        X: npt.NDArray[int | float],
         alpha: float | ArrayLike | None = None,
         bytes: bool = False,
-    ) -> tuple: ...
+    ) -> npt.NDArray[RGBAColor]: ...
     def __copy__(self)-> Colormap: ...
     def __eq__(self, other: Colormap) -> bool: ...
     def get_bad(self)-> np.ndarray: ...
