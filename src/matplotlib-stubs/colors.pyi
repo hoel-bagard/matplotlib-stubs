@@ -51,6 +51,9 @@ class ColorConverter:
 colorConverter: ColorConverter = ...
 
 class Colormap:
+    name: str
+    N: int
+    colorbar_extend: bool
     def __init__(self, name: str, N:int=256) -> None: ...
     def __call__(
         self,
