@@ -14,7 +14,10 @@ PathLike = str
 PandasScalar = pd.Period | pd.Timestamp | pd.Timedelta | pd.Interval
 Scalar = PythonScalar | PandasScalar
 
-Color = tuple[float, float, float] | str
+RGBColor = tuple[float, float, float]
+RGBAColor = tuple[float, float, float, float]
+
+Color = RGBColor | RGBAColor | str
 
 __all__ = [
     "ArrayLike",
