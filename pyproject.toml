@@ -33,6 +33,15 @@ packages = [
 
 [project.optional-dependencies]
 dev = ["pre-commit", "pip-tools", "ruff", "pyright"]
+test = [
+    "matplotlib-stubs[dev]",
+    "mypy",
+    "numpy",
+    "pandas",
+    "pandas-stubs",
+    "pytest",
+    "pytest-mypy-plugins",
+]
 build = ["hatch"]
 
 [tool.hatch.version]
@@ -108,3 +117,7 @@ reportUnusedCallResult = false
 reportUnusedExpression = "warning"
 reportUnnecessaryTypeIgnoreComment = "warning"
 reportMatchNotExhaustive = "warning"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--mypy-only-local-stub"

@@ -25,5 +25,7 @@ __all__ = [
     "Decimal",
     "FileLike",
     "PathLike",
+    "RGBAColor",
+    "RGBColor",
     "Scalar",
 ]
