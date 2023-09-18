@@ -3,8 +3,6 @@
   parametrized:
     - val: '"0"'
       rt: str
-    - val: "False"
-      rt: bool
     - val: pd.Period("2022-01")
       rt: Period
     - val: pd.Timestamp("2022-01-01")
@@ -27,7 +25,40 @@
     main:5: note: Possible overload variants:
     main:5: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: bool = ...) -> Tuple[float, float, float, float]
     main:5: note:     def __call__(self, X: ndarray[Any, dtype[Union[int, float]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: bool = ...) -> ndarray[Any, dtype[Tuple[float, float, float, float]]]
+- case: Colormap_does_not_accept_bool_todo_add_above
+  parametrized:
+    - val: "False"
+      rt: bool
+  mypy_config: |
+    force_uppercase_builtins = true
+    force_union_syntax = true
+  expect_fail: true  # `bool` is considered a subclass of `int`: https://github.com/python/mypy/issues/16135
+  main: |
+    import matplotlib
+    import pandas as pd
 
+    colors = matplotlib.cm.get_cmap("viridis", 10)
+    colors({{ val }})
+  out: |
+    main:5: error: No overload variant of "__call__" of "Colormap" matches argument type "{{ rt }}"  [call-overload]
+    main:5: note: Possible overload variants:
+    main:5: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: bool = ...) -> Tuple[float, float, float, float]
+    main:5: note:     def __call__(self, X: ndarray[Any, dtype[Union[int, float]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: bool = ...) -> ndarray[Any, dtype[Tuple[float, float, float, float]]]
+
+- case: Colormap_requires_one_argument
+  mypy_config: |
+    force_uppercase_builtins = true
+    force_union_syntax = true
+  main: |
+    import matplotlib
+
+    colors = matplotlib.cm.get_cmap("viridis", 10)
+    colors()
+  out: |
+    main:4: error: All overload variants of "__call__" of "Colormap" require at least one argument  [call-overload]
+    main:4: note: Possible overload variants:
+    main:4: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: bool = ...) -> Tuple[float, float, float, float]
+    main:4: note:     def __call__(self, X: ndarray[Any, dtype[Union[int, float]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: bool = ...) -> ndarray[Any, dtype[Tuple[float, float, float, float]]]
 - case: Colormap_accepts_int_float
   parametrized:
     - val: "0"
