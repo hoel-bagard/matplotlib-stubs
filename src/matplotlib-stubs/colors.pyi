@@ -60,7 +60,7 @@ class Colormap:
     def __call__(
         self,
         X: int | float,
-        alpha: float | None,
+        alpha: float | None = None,
         bytes: bool = False,
     ) -> RGBAColor: ...
     @overload

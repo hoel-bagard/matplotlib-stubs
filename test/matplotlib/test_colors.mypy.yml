@@ -25,7 +25,7 @@
   out: |
     main:5: error: No overload variant of "__call__" of "Colormap" matches argument type "{{ rt }}"  [call-overload]
     main:5: note: Possible overload variants:
-    main:5: note:     def __call__(self, X: Union[int, float], alpha: Optional[float], bytes: bool = ...) -> Tuple[float, float, float, float]
+    main:5: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: bool = ...) -> Tuple[float, float, float, float]
     main:5: note:     def __call__(self, X: ndarray[Any, dtype[Union[int, float]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: bool = ...) -> ndarray[Any, dtype[Tuple[float, float, float, float]]]
 
 - case: Colormap_accepts_int_float
@@ -38,11 +38,9 @@
   main: |
     import matplotlib
     import pandas as pd
-    import numpy as np
-    import builtins
 
     colors = matplotlib.cm.get_cmap("viridis", 10)
-    res = colors({{ val }}, alpha=0.0, bytes=True)
+    res = colors({{ val }})
     reveal_type(res)  # N: Revealed type is "Tuple[builtins.float, builtins.float, builtins.float, builtins.float]"
 
 - case: Colormap_accepts_ndarray_of_int_float
@@ -52,11 +50,10 @@
   main: |
     import matplotlib
     import numpy as np
-    import builtins
 
     no_of_colors = 10
     colors = matplotlib.cm.get_cmap("viridis", no_of_colors)
 
     test_array = np.linspace(0, 1, no_of_colors, dtype=float)
-    res = colors(test_array, alpha=0.0, bytes=True)
+    res = colors(test_array)
     reveal_type(res)  # N: Revealed type is "numpy.ndarray[Any, numpy.dtype[Tuple[builtins.float, builtins.float, builtins.float, builtins.float]]]"
