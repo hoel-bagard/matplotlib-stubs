@@ -21,7 +21,11 @@ classifiers = [
 ]
 license = {text = "MIT"}
 dynamic = ["version"]
-dependencies = ["matplotlib>=3.0"]
+dependencies = [
+    "matplotlib>=3.0",
+    "numpy~=1.20",
+    "pandas~=2.0",
+]
 requires-python = ">=3.8"
 packages = [
     { "include" = "matplotlib-stubs"}
@@ -32,13 +36,16 @@ packages = [
 "Bug Tracker" = "https://github.com/hoel-bagard/matplotlib-stubs/issues"
 
 [project.optional-dependencies]
-dev = ["pre-commit", "pip-tools", "ruff", "pyright"]
+dev = [
+    "pandas-stubs",
+    "pip-tools",
+    "pre-commit",
+    "pyright",
+    "ruff",
+]
 test = [
     "matplotlib-stubs[dev]",
     "mypy",
-    "numpy",
-    "pandas",
-    "pandas-stubs",
     "pytest",
     "pytest-mypy-plugins",
 ]
