@@ -17,9 +17,9 @@ Scalar = PythonScalar | PandasScalar
 
 RGBColor = tuple[float, float, float]
 RGBAColor = tuple[np.float_, np.float_, np.float_, np.float_]
-RGBAColorBytes = tuple[np.uint8, np.uint8, np.uint8, np.uint8]
+RGBAColorInt = tuple[np.uint8, np.uint8, np.uint8, np.uint8]
 
-Color = RGBColor | RGBAColor | RGBAColorBytes | str
+Color = RGBColor | RGBAColor | RGBAColorInt | str
 
 __all__ = [
     "ArrayLike",
@@ -28,7 +28,7 @@ __all__ = [
     "FileLike",
     "PathLike",
     "RGBAColor",
-    "RGBAColorBytes",
+    "RGBAColorInt",
     "RGBColor",
     "Scalar",
 ]
