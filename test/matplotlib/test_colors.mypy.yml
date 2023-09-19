@@ -23,8 +23,11 @@
   out: |
     main:5: error: No overload variant of "__call__" of "Colormap" matches argument type "{{ rt }}"  [call-overload]
     main:5: note: Possible overload variants:
-    main:5: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: bool = ...) -> Tuple[float, float, float, float]
-    main:5: note:     def __call__(self, X: ndarray[Any, dtype[Union[int, float]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: bool = ...) -> ndarray[Any, dtype[Tuple[float, float, float, float]]]
+    main:5: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: Literal[False] = ...) -> Tuple[floating[Any], floating[Any], floating[Any], floating[Any]]
+    main:5: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: Literal[True] = ...) -> Tuple[unsignedinteger[_8Bit], unsignedinteger[_8Bit], unsignedinteger[_8Bit], unsignedinteger[_8Bit]]
+    main:5: note:     def __call__(self, X: ndarray[Any, dtype[Union[signedinteger[Any], unsignedinteger[Any], floating[Any]]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: Literal[False] = ...) -> ndarray[Any, dtype[floating[Any]]]
+    main:5: note:     def __call__(self, X: ndarray[Any, dtype[Union[signedinteger[Any], unsignedinteger[Any], floating[Any]]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: Literal[True] = ...) -> ndarray[Any, dtype[unsignedinteger[_8Bit]]]
+
 - case: Colormap_does_not_accept_bool_todo_add_above
   parametrized:
     - val: "False"
@@ -57,8 +60,11 @@
   out: |
     main:4: error: All overload variants of "__call__" of "Colormap" require at least one argument  [call-overload]
     main:4: note: Possible overload variants:
-    main:4: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: bool = ...) -> Tuple[float, float, float, float]
-    main:4: note:     def __call__(self, X: ndarray[Any, dtype[Union[int, float]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: bool = ...) -> ndarray[Any, dtype[Tuple[float, float, float, float]]]
+    main:4: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: Literal[False] = ...) -> Tuple[floating[Any], floating[Any], floating[Any], floating[Any]]
+    main:4: note:     def __call__(self, X: Union[int, float], alpha: Optional[float] = ..., bytes: Literal[True] = ...) -> Tuple[unsignedinteger[_8Bit], unsignedinteger[_8Bit], unsignedinteger[_8Bit], unsignedinteger[_8Bit]]
+    main:4: note:     def __call__(self, X: ndarray[Any, dtype[Union[signedinteger[Any], unsignedinteger[Any], floating[Any]]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: Literal[False] = ...) -> ndarray[Any, dtype[floating[Any]]]
+    main:4: note:     def __call__(self, X: ndarray[Any, dtype[Union[signedinteger[Any], unsignedinteger[Any], floating[Any]]]], alpha: Union[float, Union[_SupportsArray[dtype[Any]], _NestedSequence[_SupportsArray[dtype[Any]]], bool, int, float, complex, str, bytes, _NestedSequence[Union[bool, int, float, complex, str, bytes]]], None] = ..., bytes: Literal[True] = ...) -> ndarray[Any, dtype[unsignedinteger[_8Bit]]]
+
 - case: Colormap_accepts_int_float
   parametrized:
     - val: "0"
@@ -72,7 +78,7 @@
 
     colors = matplotlib.cm.get_cmap("viridis", 10)
     res = colors({{ val }})
-    reveal_type(res)  # N: Revealed type is "Tuple[builtins.float, builtins.float, builtins.float, builtins.float]"
+    reveal_type(res)  # N: Revealed type is "Tuple[numpy.floating[Any], numpy.floating[Any], numpy.floating[Any], numpy.floating[Any]]"
 
 - case: Colormap_accepts_ndarray_of_int_float
   mypy_config: |
@@ -85,6 +91,6 @@
     no_of_colors = 10
     colors = matplotlib.cm.get_cmap("viridis", no_of_colors)
 
-    test_array = np.linspace(0, 1, no_of_colors, dtype=float)
+    test_array = np.linspace(0, 1, no_of_colors, dtype=np.float64)
     res = colors(test_array)
-    reveal_type(res)  # N: Revealed type is "numpy.ndarray[Any, numpy.dtype[Tuple[builtins.float, builtins.float, builtins.float, builtins.float]]]"
+    reveal_type(res)  # N: Revealed type is "numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]"
