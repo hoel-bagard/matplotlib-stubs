@@ -94,3 +94,13 @@
     test_array = np.linspace(0, 1, no_of_colors, dtype=np.float64)
     res = colors(test_array)
     reveal_type(res)  # N: Revealed type is "numpy.ndarray[Any, numpy.dtype[numpy.floating[Any]]]"
+
+- case: to_rgb
+  mypy_config: |
+    force_uppercase_builtins = true
+    force_union_syntax = true
+  main: |
+    import matplotlib.colors as colors
+
+    rgb_tuple = colors.to_rgb("red")
+    reveal_type(rgb_tuple)  # N: Revealed type is "Tuple[builtins.float, builtins.float, builtins.float]"
