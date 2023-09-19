@@ -61,15 +61,29 @@ class Colormap:
         self,
         X: int | float,
         alpha: float | None = None,
-        bytes: bool = False,
+        bytes: Literal[False] = False,
     ) -> RGBAColor: ...
     @overload
     def __call__(
         self,
-        X: npt.NDArray[int | float],
+        X: int | float,
+        alpha: float | None = None,
+        bytes: Literal[True] = True,
+    ) -> RGBAColorBytes: ...
+    @overload
+    def __call__(
+        self,
+        X: npt.NDArray[np.int_ | np.uint | np.float_],
         alpha: float | ArrayLike | None = None,
-        bytes: bool = False,
-    ) -> npt.NDArray[RGBAColor]: ...
+        bytes: Literal[False] = False,
+    ) -> npt.NDArray[np.float_]: ...
+    @overload
+    def __call__(
+        self,
+        X: npt.NDArray[np.int_ | np.uint | np.float_],
+        alpha: float | ArrayLike | None = None,
+        bytes: Literal[True] = True,
+    ) -> npt.NDArray[np.uint8]: ...
     def __copy__(self)-> Colormap: ...
     def __eq__(self, other: Colormap) -> bool: ...
     def get_bad(self)-> np.ndarray: ...
