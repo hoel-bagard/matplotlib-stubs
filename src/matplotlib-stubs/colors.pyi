@@ -2,9 +2,10 @@ import functools
 from collections.abc import Callable, Iterator, Mapping
 from email.errors import NonPrintableDefect
 from re import Pattern
-from typing import Literal
+from typing import Literal, overload
 
 import numpy as np
+import numpy.typing as npt
 from matplotlib._typing import *
 
 from .scale import AsinhScale, FuncScale, LogScale, SymmetricalLogScale
@@ -29,7 +30,7 @@ def is_color_like(c)-> bool: ...
 def same_color(c1: Color, c2: Color)-> bool: ...
 def to_rgba(c: np.ma.masked_array, alpha: float = ...) -> tuple: ...
 def to_rgba_array(c: ArrayLike, alpha: float = ...) -> list: ...
-def to_rgb(c: Color)-> tuple: ...
+def to_rgb(c: Color) -> RGBColor: ...
 def to_hex(c: Color, keep_alpha: bool = ...) -> str: ...
 
 cnames: dict[str, str] = ...
@@ -54,13 +55,35 @@ class Colormap:
     name: str
     N: int
     colorbar_extend: bool
-    def __init__(self, name: str, N:int=256) -> None: ...
+    def __init__(self, name: str, N: int = 256) -> None: ...
+    @overload
     def __call__(
         self,
-        X: float | int | np.ndarray | Scalar,
+        X: int | float,
+        alpha: float | None = None,
+        bytes: Literal[False] = False,
+    ) -> RGBAColor: ...
+    @overload
+    def __call__(
+        self,
+        X: int | float,
+        alpha: float | None = None,
+        bytes: Literal[True] = True,
+    ) -> RGBAColorInt: ...
+    @overload
+    def __call__(
+        self,
+        X: npt.NDArray[np.int_ | np.uint | np.float_],
         alpha: float | ArrayLike | None = None,
-        bytes: bool = False,
-    ) -> tuple: ...
+        bytes: Literal[False] = False,
+    ) -> npt.NDArray[np.float_]: ...
+    @overload
+    def __call__(
+        self,
+        X: npt.NDArray[np.int_ | np.uint | np.float_],
+        alpha: float | ArrayLike | None = None,
+        bytes: Literal[True] = True,
+    ) -> npt.NDArray[np.uint8]: ...
     def __copy__(self)-> Colormap: ...
     def __eq__(self, other: Colormap) -> bool: ...
     def get_bad(self)-> np.ndarray: ...

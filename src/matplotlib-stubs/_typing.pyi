@@ -2,6 +2,7 @@ import decimal
 import io
 
 import numpy.typing
+import numpy as np
 import pandas as pd
 
 Decimal = decimal.Decimal
@@ -15,9 +16,10 @@ PandasScalar = pd.Period | pd.Timestamp | pd.Timedelta | pd.Interval
 Scalar = PythonScalar | PandasScalar
 
 RGBColor = tuple[float, float, float]
-RGBAColor = tuple[float, float, float, float]
+RGBAColor = tuple[np.float_, np.float_, np.float_, np.float_]
+RGBAColorInt = tuple[np.uint8, np.uint8, np.uint8, np.uint8]
 
-Color = RGBColor | RGBAColor | str
+Color = RGBColor | RGBAColor | RGBAColorInt | str
 
 __all__ = [
     "ArrayLike",
@@ -25,5 +27,8 @@ __all__ = [
     "Decimal",
     "FileLike",
     "PathLike",
+    "RGBAColor",
+    "RGBAColorInt",
+    "RGBColor",
     "Scalar",
 ]
