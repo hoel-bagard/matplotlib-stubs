@@ -1,3 +1,5 @@
+[Official matplotlib stubs now exist](https://github.com/matplotlib/matplotlib/pull/24976) (in matplotlib>=3.8), so this repo is archived.
+
 # Matplotlib stubs
 
 Unofficial python stubs for the [matplotlib package](https://pypi.org/project/matplotlib/).
