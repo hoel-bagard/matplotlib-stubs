@@ -2,7 +2,8 @@ from collections.abc import Callable, Sequence
 from functools import partial
 from typing import Literal
 
-from ._typing import *
+from matplotlib._typing import ArrayLike
+
 from .axis import Axis
 from .scale import SymmetricalLogTransform
 

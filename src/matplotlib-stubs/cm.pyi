@@ -1,6 +1,7 @@
 from collections.abc import Mapping
 
-from ._typing import *
+from matplotlib._typing import ArrayLike
+
 from .colors import Colormap, Normalize
 
 class __getattr__:

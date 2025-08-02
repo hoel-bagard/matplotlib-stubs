@@ -1,7 +1,7 @@
 from typing import Any
 
 import numpy as np
-from matplotlib._typing import *
+from matplotlib._typing import ArrayLike
 
 from .trifinder import TrapezoidMapTriFinder
 

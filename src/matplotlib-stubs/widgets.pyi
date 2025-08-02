@@ -7,7 +7,7 @@ import numpy as np
 from matplotlib._typing import Color
 from matplotlib.artist import Artist
 from matplotlib.axes._axes import Axes
-from matplotlib.backend_bases import DrawEvent, Event, KeyEvent, MouseButton, MouseEvent
+from matplotlib.backend_bases import DrawEvent, Event, FigureCanvasBase, KeyEvent, MouseButton, MouseEvent
 from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
 from matplotlib.patches import Circle
@@ -155,14 +155,14 @@ class TextBox(AxesWidget):
 class RadioButtons(AxesWidget):
     ax: Axes
     activecolor: Color
-    labels: list[Text]
+    labels: list[str]
     circles: list[Circle]
     value_selected: str
 
     def __init__(
         self,
         ax: Axes,
-        labels: Sequence[Text],
+        labels: Sequence[str],
         active: int = 0,
         activecolor: Color = "blue",
     ) -> None: ...

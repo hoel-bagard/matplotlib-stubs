@@ -3,7 +3,7 @@ from io import BufferedWriter, BytesIO
 from typing import Any
 
 import numpy as np
-from matplotlib._typing import *
+from matplotlib._typing import FileLike, PathLike
 from matplotlib.backend_bases import (
     _Backend,
     FigureCanvasBase,

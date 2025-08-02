@@ -2,9 +2,9 @@ from collections.abc import Sequence
 from typing import Literal
 
 import numpy as np
+from matplotlib._typing import ArrayLike, Color, Scalar
 
 from ._enums import CapStyle, JoinStyle
-from ._typing import *
 from .artist import allow_rasterization, Artist
 from .backend_bases import MouseEvent, RendererBase
 from .path import Path

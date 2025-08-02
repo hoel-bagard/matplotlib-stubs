@@ -2,9 +2,9 @@ from collections.abc import Callable, Iterable, Sequence
 from tkinter import Label
 from typing import Literal
 
+from matplotlib._typing import ArrayLike, Color
 from matplotlib.collections import Collection
 
-from ._typing import *
 from .artist import Artist
 from .axes import Axes
 from .cm import ScalarMappable

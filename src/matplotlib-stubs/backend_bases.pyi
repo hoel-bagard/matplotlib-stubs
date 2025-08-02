@@ -3,10 +3,10 @@ from enum import Enum, IntEnum
 from typing import Any, Literal
 
 from matplotlib._api import classproperty
+from matplotlib._typing import ArrayLike, Color, FileLike, PathLike, Scalar
 
 from . import backend_tools as tools
 from ._enums import CapStyle, JoinStyle
-from ._typing import *
 from .artist import Artist
 from .axes import Axes
 from .backend_managers import ToolManager

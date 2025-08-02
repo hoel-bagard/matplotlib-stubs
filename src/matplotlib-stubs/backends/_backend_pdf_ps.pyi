@@ -1,6 +1,5 @@
 from io import BytesIO
 
-from matplotlib._typing import *
 from matplotlib.backend_bases import RendererBase
 from matplotlib.font_manager import FontProperties
 

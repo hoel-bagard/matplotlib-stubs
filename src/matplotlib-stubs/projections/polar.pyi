@@ -2,7 +2,6 @@ from collections.abc import Sequence
 from typing import Literal
 
 import numpy as np
-from matplotlib._typing import *
 from matplotlib.axes import Axes
 from matplotlib.axis import Axis, XTick, YTick
 from matplotlib.backend_bases import MouseButton
