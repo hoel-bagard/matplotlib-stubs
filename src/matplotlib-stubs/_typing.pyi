@@ -1,19 +1,10 @@
 import decimal
 import io
-from pathlib import Path
-from typing import Any, Callable, Literal, Sequence, TypedDict
+import os
 
 import numpy as np
 import numpy.typing as npt
 import pandas as pd
-from matplotlib._enums import CapStyle, JoinStyle
-from matplotlib.artist import Artist
-from matplotlib.backend_bases import Event
-from matplotlib.colors import Colormap, Normalize
-from matplotlib.figure import Figure, SubFigure
-from matplotlib.markers import MarkerStyle
-from matplotlib.patheffects import AbstractPathEffect
-from matplotlib.transforms import BboxBase, Transform
 from typing_extensions import TypeAlias
 
 Decimal = decimal.Decimal
@@ -21,7 +12,7 @@ PythonScalar: TypeAlias = str | int | float | bool
 
 ArrayLike = npt.ArrayLike
 FileLike = io.IOBase
-PathLike = str
+PathLike = os.PathLike
 
 PandasScalar: TypeAlias = pd.Period | pd.Timestamp | pd.Timedelta | pd.Interval
 Scalar: TypeAlias = PythonScalar | PandasScalar
@@ -31,139 +22,3 @@ RGBAColor: TypeAlias = tuple[np.float64, np.float64, np.float64, np.float64]
 RGBAColorInt: TypeAlias = tuple[np.uint8, np.uint8, np.uint8, np.uint8]
 
 Color: TypeAlias = RGBColor | RGBAColor | RGBAColorInt | str
-
-class SketchParams(TypedDict, total=False):
-    scale: float
-    length: float
-    randomness: float
-
-class Clim(TypedDict, total=False):
-    vim: float
-    vmax: float
-
-class PathCollectionProperties(TypedDict, total=False):
-    agg_filter: Callable[[npt.NDArray, float], tuple[npt.NDArray, int, int]]
-    alpha: npt.ArrayLike | float | None
-    animated: bool
-    antialiased: bool | list[bool]
-    aa: bool | list[bool]
-    antialiaseds: bool | list[bool]
-    array: npt.ArrayLike | None
-    capstyle: CapStyle | Literal["butt", "projecting", "round"]
-    clim: Clim
-    clip_box: BboxBase | None
-    clip_on: bool
-    clip_path: Path | tuple[Path, Transform] | None
-    cmap: Colormap | str | None
-    color: Color | list[tuple[RGBAColor, ...]]
-    edgecolor: Color | list[Color] | Literal["face"]
-    ec: Color | list[Color] | Literal["face"]
-    edgecolors: Color | list[Color] | Literal["face"]
-    facecolor: Color | list[Color]
-    facecolors: Color | list[Color]
-    fc: Color | list[Color]
-    figure: Figure | SubFigure
-    gid: str
-    hatch: Literal["/", "\\", "|", "-", "+", "x", "o", "O", ".", "*"]
-    hatch_linewidth: Any
-    in_layout: bool
-    joinstyle: JoinStyle | Literal["miter", "round", "bevel"]
-    label: object
-    linestyle: str | tuple[str] | list[str]
-    linestyles: str | tuple[str] | list[str]
-    ls: str | tuple[str] | list[str]
-    dashes: str | tuple[str] | list[str]
-    linewidth: float | list[float]
-    linewidths: float | list[float]
-    lw: float | list[float]
-    mouseover: bool
-    norm: Normalize | str | None
-    offset_transform: Transform
-    transOffset: Transform
-    offsets: npt.ArrayLike
-    path_effects: list[AbstractPathEffect]
-    paths: Any
-    picker: bool | float | None | Callable
-    pickradius: float
-    rasterized: bool
-    sizes: npt.NDArray | None
-    sketch_params: SketchParams
-    snap: bool | None
-    transform: Transform
-    url: str
-    utls: list[str] | None
-    visible: bool
-    zorder: float
-
-class Line2DProperty(TypedDict, total=False):
-    agg_filter: Callable[[npt.NDArray, float], tuple[npt.NDArray, int, int]]
-    alpha: float | None
-    animated: bool
-    antialiased: bool
-    aa: bool
-    clip_box: BboxBase | None
-    clip_on: bool
-    clip_path: Path | tuple[Path, Transform] | None
-    color: Color
-    c: Color
-    dash_capstyle: CapStyle | Literal["butt", "projecting", "round"]
-    dash_joinstyle: JoinStyle | Literal["miter", "round", "bevel"]
-    dashes: Sequence[float] | tuple[None, None]
-    data: npt.NDArray | tuple[npt.NDArray]
-    drawstyle: Literal["default", "steps", "steps-pre", "steps-mid", "steps-post"]
-    ds: Literal["default", "steps", "steps-pre", "steps-mid", "steps-post"]
-    figure: Figure | SubFigure
-    fillstyle: Literal["full", "left", "right", "bottom", "top", "none"]
-    gapcolor: Color | None
-    gid: str
-    in_layout: bool
-    label: object
-    linestyle: (
-        Literal["-", "solid", "--", "dashed", "-.", "dashdot", ":", "dotted", "", "none", "None", " "]
-        | tuple[int, Sequence[int]]
-    )
-    ls: (
-        Literal["-", "solid", "--", "dashed", "-.", "dashdot", ":", "dotted", "", "none", "None", " "]
-        | tuple[int, Sequence[int]]
-    )
-    linewidth: float
-    lw: float
-    marker: str | Path | MarkerStyle
-    markeredgecolor: Color
-    mec: Color
-    markeredgewidth: float
-    mew: float
-    markerfacecolor: Color
-    mfc: Color
-    markerfacecoloralt: Color
-    mfcalt: Color
-    markersize: float
-    ms: float
-    markevery: None | int | tuple[int, int] | slice | list[int] | float | tuple[float, float] | list[bool]
-    mouseover: bool
-    path_effects: list[AbstractPathEffect]
-    picker: float | Callable[[Artist, Event], tuple[bool, dict]]
-    pickradius: float
-    rasterized: bool
-    sketch_params: SketchParams
-    snap: bool | None
-    solid_capstyle: CapStyle | Literal["butt", "projecting", "round"]
-    solid_joinstyle: JoinStyle | Literal["miter", "round", "bevel"]
-    transform: Any
-    url: str
-    visible: bool
-    xdata: npt.NDArray
-    ydata: npt.NDArray
-    zorder: float
-
-__all__ = [
-    "ArrayLike",
-    "Color",
-    "Decimal",
-    "FileLike",
-    "PathLike",
-    "RGBAColor",
-    "RGBAColorInt",
-    "RGBColor",
-    "Scalar",
-]

@@ -6,7 +6,13 @@ from typing import Any, ContextManager, IO, Literal, overload, Unpack
 import numpy as np
 import numpy.typing as npt
 from matplotlib import rcParams as rcParams
-from matplotlib._typing import ArrayLike, Color, FileLike, Line2DProperty, PathCollectionProperties, PathLike, Scalar
+from matplotlib._stubs_utils._properties import (
+    Line2DProperty,
+    PathCollectionProperties,
+    TextProperties,
+    TitleTextProperties,
+)
+from matplotlib._typing import ArrayLike, Color, FileLike, PathLike, Scalar
 from matplotlib.colorizer import Colorizer
 from matplotlib.contour import QuadContourSet
 from matplotlib.layout_engine import LayoutEngine
@@ -938,27 +944,27 @@ def xcorr(
 def sci(im): ...
 def title(
     label: str,
-    fontdict: dict = ...,
-    loc: Literal["center", "left", "right"] = ...,
-    pad: float = ...,
+    fontdict: dict[str, Any] | None = None,
+    loc: Literal["left", "center", "right"] | None = None,
+    pad: float | None = None,
     *,
-    y: float = ...,
-    **kwargs,
+    y: float | None = None,
+    **kwargs: Unpack[TitleTextProperties],
 ) -> Text: ...
 def xlabel(
     xlabel: str,
-    fontdict=...,
-    labelpad: float = ...,
+    fontdict: dict[str, Any] | None = None,
+    labelpad: float | None = None,
     *,
-    loc: Literal["left", "center", "right"] = ...,
-    **kwargs,
+    loc: Literal["left", "center", "right"] | None = None,
+    **kwargs: Unpack[TextProperties],
 ): ...
 def ylabel(
     ylabel: str,
-    fontdict=...,
-    labelpad: float = ...,
+    fontdict: dict[str, Any] | None = None,
+    labelpad: float | None = None,
     *,
-    loc: Literal["bottom", "center", "top"] = ...,
+    loc: Literal["left", "center", "right"] | None = None,
     **kwargs,
 ): ...
 def xscale(
