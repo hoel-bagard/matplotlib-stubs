@@ -1946,7 +1946,7 @@ lint = [
     { name = "ruff" },
     { name = "traitlets" },
 ]
-test = [
+tests = [
     { name = "mypy", version = "1.14.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.9'" },
     { name = "mypy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.9'" },
     { name = "pytest", version = "8.3.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.9'" },
@@ -1987,7 +1987,7 @@ lint = [
     { name = "ruff", specifier = ">=0.11.9" },
     { name = "traitlets", specifier = ">=5.14.3" },
 ]
-test = [
+tests = [
     { name = "mypy", specifier = ">=1.14.1" },
     { name = "pytest", specifier = ">=8.3.5" },
     { name = "pytest-mypy-plugins", specifier = ">=3.1.2" },
