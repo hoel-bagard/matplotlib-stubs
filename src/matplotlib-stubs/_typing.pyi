@@ -9,6 +9,7 @@ import pandas as pd
 from matplotlib._enums import CapStyle, JoinStyle
 from matplotlib.artist import Artist
 from matplotlib.backend_bases import Event
+from matplotlib.colors import Colormap, Normalize
 from matplotlib.figure import Figure, SubFigure
 from matplotlib.markers import MarkerStyle
 from matplotlib.patheffects import AbstractPathEffect
@@ -35,6 +36,64 @@ class SketchParams(TypedDict, total=False):
     scale: float
     length: float
     randomness: float
+
+class Clim(TypedDict, total=False):
+    vim: float
+    vmax: float
+
+class PathCollectionProperties(TypedDict, total=False):
+    agg_filter: Callable[[npt.NDArray, float], tuple[npt.NDArray, int, int]]
+    alpha: npt.ArrayLike | float | None
+    animated: bool
+    antialiased: bool | list[bool]
+    aa: bool | list[bool]
+    antialiaseds: bool | list[bool]
+    array: npt.ArrayLike | None
+    capstyle: CapStyle | Literal["butt", "projecting", "round"]
+    clim: Clim
+    clip_box: BboxBase | None
+    clip_on: bool
+    clip_path: Path | tuple[Path, Transform] | None
+    cmap: Colormap | str | None
+    color: Color | list[tuple[RGBAColor, ...]]
+    edgecolor: Color | list[Color] | Literal["face"]
+    ec: Color | list[Color] | Literal["face"]
+    edgecolors: Color | list[Color] | Literal["face"]
+    facecolor: Color | list[Color]
+    facecolors: Color | list[Color]
+    fc: Color | list[Color]
+    figure: Figure | SubFigure
+    gid: str
+    hatch: Literal["/", "\\", "|", "-", "+", "x", "o", "O", ".", "*"]
+    hatch_linewidth: Any
+    in_layout: bool
+    joinstyle: JoinStyle | Literal["miter", "round", "bevel"]
+    label: object
+    linestyle: str | tuple[str] | list[str]
+    linestyles: str | tuple[str] | list[str]
+    ls: str | tuple[str] | list[str]
+    dashes: str | tuple[str] | list[str]
+    linewidth: float | list[float]
+    linewidths: float | list[float]
+    lw: float | list[float]
+    mouseover: bool
+    norm: Normalize | str | None
+    offset_transform: Transform
+    transOffset: Transform
+    offsets: npt.ArrayLike
+    path_effects: list[AbstractPathEffect]
+    paths: Any
+    picker: bool | float | None | Callable
+    pickradius: float
+    rasterized: bool
+    sizes: npt.NDArray | None
+    sketch_params: SketchParams
+    snap: bool | None
+    transform: Transform
+    url: str
+    utls: list[str] | None
+    visible: bool
+    zorder: float
 
 class Line2DProperty(TypedDict, total=False):
     agg_filter: Callable[[npt.NDArray, float], tuple[npt.NDArray, int, int]]
