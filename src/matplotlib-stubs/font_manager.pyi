@@ -1,12 +1,13 @@
 import json
+from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import PosixPath
 from typing import Literal
 
+from matplotlib._typing import PathLike
 from matplotlib.ft2font import FT2Font
 
 from ._afm import AFM
-from ._typing import *
 
 font_scalings = ...
 stretch_dict = ...
@@ -25,8 +26,15 @@ def win32FontDirectory(): ...
 def win32InstalledFonts(directory=..., fontext=...): ...
 def get_fontconfig_fonts(fontext=...): ...
 def findSystemFonts(fontpaths=..., fontext=...): ...
-
-FontEntry = ...
+@dataclass(frozen=True)
+class FontEntry:
+    fname: str = ...
+    name: str = ...
+    style: str = ...
+    variant: str = ...
+    weight: str | int = ...
+    stretch: str = ...
+    size: str = ...
 
 def ttfFontProperty(font: FT2Font) -> FontEntry: ...
 def afmFontProperty(fontpath, font: AFM) -> FontEntry: ...
@@ -34,9 +42,7 @@ def afmFontProperty(fontpath, font: AFM) -> FontEntry: ...
 class FontProperties:
     def __init__(
         self,
-        family: list[str]
-        | str
-        | Literal["sans-serif", "serif", "cursive", "fantasy", "monospace"] = ...,
+        family: list[str] | str | Literal["sans-serif", "serif", "cursive", "fantasy", "monospace"] = ...,
         style: Literal["normal", "italic", "oblique"] = ...,
         variant: Literal["normal", "small-caps"] = ...,
         weight: int
@@ -70,16 +76,26 @@ class FontProperties:
         ] = ...,
         size: float
         | Literal[
-            "xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large",
+            "xx-small",
+            "x-small",
+            "small",
+            "medium",
+            "large",
+            "x-large",
+            "xx-large",
         ] = ...,
         fname: PosixPath | None = ...,
         math_fontfamily: Literal[
-            "dejavusans", "dejavuserif", "cm", "stix", "stixsans", "custom",
+            "dejavusans",
+            "dejavuserif",
+            "cm",
+            "stix",
+            "stixsans",
+            "custom",
         ] = ...,
     ) -> None: ...
     def __hash__(self) -> int: ...
     def __eq__(self, other: FontProperties) -> bool: ...
-    def __str__(self) -> str: ...
     def get_family(self) -> list[str]: ...
     def get_name(self) -> str: ...
     def get_style(self) -> str: ...
@@ -91,9 +107,7 @@ class FontProperties:
     def get_fontconfig_pattern(self) -> str: ...
     def set_family(
         self,
-        family: str
-        | list[str]
-        | Literal["sans-serif", "serif", "cursive", "fantasy", "monospace"],
+        family: str | list[str] | Literal["sans-serif", "serif", "cursive", "fantasy", "monospace"],
     ) -> None: ...
     def set_style(self, style: Literal["normal", "italic", "oblique"]) -> None: ...
     def set_variant(self, variant: Literal["normal", "small-caps"]) -> None: ...
@@ -136,7 +150,13 @@ class FontProperties:
         self,
         size: float
         | Literal[
-            "xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large",
+            "xx-small",
+            "x-small",
+            "small",
+            "medium",
+            "large",
+            "x-large",
+            "xx-large",
         ],
     ) -> None: ...
     def set_file(self, file: PosixPath | None) -> None: ...
@@ -145,7 +165,12 @@ class FontProperties:
     def set_math_fontfamily(
         self,
         fontfamily: Literal[
-            "dejavusans", "dejavuserif", "cm", "stix", "stixsans", "custom",
+            "dejavusans",
+            "dejavuserif",
+            "cm",
+            "stix",
+            "stixsans",
+            "custom",
         ],
     ) -> None: ...
     def copy(self) -> FontProperties: ...

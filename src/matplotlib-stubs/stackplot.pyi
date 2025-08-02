@@ -1,7 +1,8 @@
 from collections.abc import Sequence
 from typing import Literal
 
-from ._typing import *
+from matplotlib._typing import ArrayLike, Color
+
 from .collections import PolyCollection
 
 __all__ = ["stackplot"]

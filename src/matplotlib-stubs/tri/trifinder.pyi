@@ -1,5 +1,5 @@
 import numpy as np
-from matplotlib._typing import *
+from numpy.typing import ArrayLike
 
 from .triangulation import Triangulation
 

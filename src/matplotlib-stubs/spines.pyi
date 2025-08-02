@@ -2,7 +2,8 @@ from collections import OrderedDict
 from collections.abc import MutableMapping, Sequence
 from functools import partial
 
-from ._typing import *
+from matplotlib._typing import Color
+
 from .artist import allow_rasterization
 from .axes import Axes
 from .axis import Axis
@@ -12,10 +13,13 @@ from .path import Path
 from .transforms import Transform
 
 class Spine(Patch):
-    def __str__(self) -> str: ...
     def __init__(self, axes: Axes, spine_type: str, path: Path, **kwargs) -> None: ...
     def set_patch_arc(
-        self, center: Sequence[float], radius: float, theta1: float, theta2: float,
+        self,
+        center: Sequence[float],
+        radius: float,
+        theta1: float,
+        theta2: float,
     ) -> None: ...
     def set_patch_circle(self, center: Sequence[float], radius: float) -> None: ...
     def set_patch_line(self): ...

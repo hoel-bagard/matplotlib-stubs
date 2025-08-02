@@ -2,10 +2,10 @@ from collections.abc import Callable, Sequence
 from typing import Any, Literal
 
 import numpy as np
+from matplotlib._typing import ArrayLike, Color
 from matplotlib.markers import MarkerStyle
 
 from ._enums import CapStyle, JoinStyle
-from ._typing import *
 from .artist import allow_rasterization, Artist
 from .backend_bases import Event, MouseEvent, RendererBase
 from .backends.backend_agg import RendererAgg
@@ -15,7 +15,6 @@ from .transforms import Bbox, Transform
 def segment_hits(cx, cy, x, y, radius): ...
 
 class Line2D(Artist):
-
     lineStyles = ...
 
     drawStyles = ...
@@ -24,7 +23,6 @@ class Line2D(Artist):
     filled_markers = ...
     fillStyles = ...
     zorder = ...
-    def __str__(self) -> str: ...
     def __init__(
         self,
         xdata: Sequence[float],
@@ -46,7 +44,11 @@ class Line2D(Artist):
         solid_joinstyle: JoinStyle = ...,
         pickradius: float = ...,
         drawstyle: Literal[
-            "default", "steps", "steps-pre", "steps-mid", "steps-post",
+            "default",
+            "steps",
+            "steps-pre",
+            "steps-mid",
+            "steps-post",
         ] = "default",
         markevery=...,
         **kwargs,
@@ -57,8 +59,9 @@ class Line2D(Artist):
     pickradius = ...
     def get_fillstyle(self) -> str: ...
     def set_fillstyle(
-        self, fs: Literal["full", "left", "right", "bottom", "top", "none"],
-    )-> None: ...
+        self,
+        fs: Literal["full", "left", "right", "bottom", "top", "none"],
+    ) -> None: ...
     def set_markevery(self, every) -> None: ...
     def get_markevery(self) -> Any: ...
     def set_picker(self, p: Callable | float) -> None: ...
@@ -82,7 +85,8 @@ class Line2D(Artist):
     def get_markerfacecoloralt(self) -> Color: ...
     def get_markersize(self) -> float: ...
     def get_data(
-        self, orig: bool = False,
+        self,
+        orig: bool = False,
     ) -> tuple[Sequence[float], Sequence[float]]: ...
     def get_xdata(self, orig: bool = False) -> Sequence[float]: ...
     def get_ydata(self, orig: bool = False) -> Sequence[float]: ...
@@ -93,7 +97,11 @@ class Line2D(Artist):
     def set_drawstyle(
         self,
         drawstyle: Literal[
-            "default", "steps", "steps-pre", "steps-mid", "steps-post",
+            "default",
+            "steps",
+            "steps-pre",
+            "steps-mid",
+            "steps-post",
         ] = "default",
     ) -> None: ...
     def set_linewidth(self, w: float) -> None: ...
@@ -120,7 +128,11 @@ class Line2D(Artist):
 
 class _AxLine(Line2D):
     def __init__(
-        self, xy1: Sequence[float], xy2: Sequence[float], slope: float, **kwargs,
+        self,
+        xy1: Sequence[float],
+        xy2: Sequence[float],
+        slope: float,
+        **kwargs,
     ) -> None: ...
     def get_transform(self): ...
     def draw(self, renderer: RendererAgg) -> None: ...

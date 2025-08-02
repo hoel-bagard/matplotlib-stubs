@@ -4,16 +4,16 @@ from typing import (
 )
 
 import numpy as np
+from matplotlib._typing import Color
+from matplotlib.artist import Artist
 from matplotlib.axes._axes import Axes
-from matplotlib.backend_bases import MouseButton
+from matplotlib.backend_bases import DrawEvent, Event, FigureCanvasBase, KeyEvent, MouseButton, MouseEvent
 from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
+from matplotlib.patches import Circle
 from numpy import ndarray
 from numpy.typing import ArrayLike
-
-from . import _api
-from .lines import Line2D
-from .patches import Circle
+from PIL.Image import Image
 
 class LockDraw:
     def __init__(self) -> None: ...
@@ -67,7 +67,6 @@ class SliderBase(AxesWidget):
     def reset(self): ...
 
 class Slider(SliderBase):
-
     val: float
 
     def __init__(
@@ -95,7 +94,6 @@ class Slider(SliderBase):
     def on_changed(self, func: Callable) -> int: ...
 
 class RangeSlider(SliderBase):
-
     val: tuple[float, ...]
 
     def __init__(
@@ -122,7 +120,10 @@ class RangeSlider(SliderBase):
 
 class CheckButtons(AxesWidget):
     def __init__(
-        self, ax: Axes, labels: Sequence[str], actives: Sequence[bool] = ...,
+        self,
+        ax: Axes,
+        labels: Sequence[str],
+        actives: Sequence[bool] = ...,
     ) -> None: ...
     def set_active(self, index: int): ...
     def get_status(self) -> tuple[bool, ...]: ...
@@ -130,7 +131,6 @@ class CheckButtons(AxesWidget):
     def disconnect(self, cid) -> None: ...
 
 class TextBox(AxesWidget):
-
     DIST_FROM_LEFT = ...
     def __init__(
         self,
@@ -153,17 +153,16 @@ class TextBox(AxesWidget):
     def disconnect(self, cid): ...
 
 class RadioButtons(AxesWidget):
-
     ax: Axes
     activecolor: Color
-    labels: list[Text]
+    labels: list[str]
     circles: list[Circle]
     value_selected: str
 
     def __init__(
         self,
         ax: Axes,
-        labels: Sequence[Text],
+        labels: Sequence[str],
         active: int = 0,
         activecolor: Color = "blue",
     ) -> None: ...
@@ -315,7 +314,7 @@ class ToolHandles:
     def set_data(
         self,
         pts: tuple[float, float, float],
-        y: tuple[float, float, float]|None = None,
+        y: tuple[float, float, float] | None = None,
     ) -> None: ...
     def set_visible(self, val): ...
     def set_animated(self, val): ...
@@ -368,7 +367,6 @@ class RectangleSelector(_SelectorWidget):
     def geometry(self) -> np.ndarray: ...
 
 class EllipseSelector(RectangleSelector):
-
     draw_shape = ...
 
 class LassoSelector(_SelectorWidget):
@@ -380,7 +378,6 @@ class LassoSelector(_SelectorWidget):
         props: Mapping | None = None,
         button: MouseButton | Sequence[MouseButton] | None = None,
     ) -> None: ...
-    @_api.deprecated("3.5", alternative="press")
     def onpress(self, event): ...
     def onrelease(self, event): ...
 
@@ -398,7 +395,6 @@ class PolygonSelector(_SelectorWidget):
         box_handle_props: Mapping | None = None,
         box_props: Mapping | None = None,
     ) -> None: ...
-
 
     line = ...
     vertex_select_radius = ...

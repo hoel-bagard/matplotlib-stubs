@@ -2,8 +2,7 @@ from collections.abc import Callable, Sequence
 from typing import Literal
 
 import numpy as np
-
-from ._typing import *
+from matplotlib._typing import ArrayLike, Scalar
 
 def window_hanning(x): ...
 def window_none(x): ...
@@ -72,7 +71,9 @@ def cohere(
 
 class GaussianKDE:
     def __init__(
-        self, dataset: ArrayLike, bw_method: str | Scalar | Callable = ...,
+        self,
+        dataset: ArrayLike,
+        bw_method: str | Scalar | Callable = ...,
     ) -> None: ...
     def scotts_factor(self): ...
     def silverman_factor(self): ...

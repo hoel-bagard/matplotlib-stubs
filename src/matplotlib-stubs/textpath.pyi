@@ -7,25 +7,42 @@ from .font_manager import FontProperties
 from .path import Path
 
 class TextToPath:
-
     FONT_SCALE = ...
     DPI = ...
     def __init__(self) -> None: ...
     def get_text_width_height_descent(
-        self, s: str, prop: FontProperties, ismath: bool | Literal["TeX"],
+        self,
+        s: str,
+        prop: FontProperties,
+        ismath: bool | Literal["TeX"],
     ): ...
     def get_text_path(
-        self, prop: FontProperties, s: str, ismath: bool | Literal["TeX"] = ...,
+        self,
+        prop: FontProperties,
+        s: str,
+        ismath: bool | Literal["TeX"] = ...,
     ): ...
     def get_glyphs_with_font(
-        self, font: FontProperties, s: str, glyph_map=..., return_new_glyphs_only=...,
+        self,
+        font: FontProperties,
+        s: str,
+        glyph_map=...,
+        return_new_glyphs_only=...,
     ): ...
     def get_glyphs_mathtext(
-        self, prop: FontProperties, s: str, glyph_map=..., return_new_glyphs_only=...,
+        self,
+        prop: FontProperties,
+        s: str,
+        glyph_map=...,
+        return_new_glyphs_only=...,
     ): ...
     def get_texmanager(self) -> TexManager: ...
     def get_glyphs_tex(
-        self, prop: FontProperties, s: str, glyph_map=..., return_new_glyphs_only=...,
+        self,
+        prop: FontProperties,
+        s: str,
+        glyph_map=...,
+        return_new_glyphs_only=...,
     ): ...
 
 text_to_path = ...

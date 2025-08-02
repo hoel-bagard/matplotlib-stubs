@@ -1,7 +1,7 @@
 from typing import Any
 
 import numpy as np
-from matplotlib._typing import *
+from matplotlib._typing import ArrayLike
 
 from .trifinder import TrapezoidMapTriFinder
 
@@ -20,7 +20,8 @@ class Triangulation:
     def get_masked_triangles(self) -> np.ndarray: ...
     @staticmethod
     def get_from_args_and_kwargs(
-        *args, **kwargs,
+        *args,
+        **kwargs,
     ) -> tuple[Triangulation, list, dict[str, Any]]: ...
     def get_trifinder(self) -> TrapezoidMapTriFinder: ...
     @property

@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 
-from ._typing import *
+from matplotlib._typing import FileLike, PathLike
+
 from .font_manager import FontProperties
 
 get_unicode_index = ...
@@ -18,7 +19,11 @@ class MathtextBackendAgg(MathtextBackend):
     def set_canvas_size(self, w: float, h: float, d: float) -> None: ...
     def render_glyph(self, ox: float, oy: float, info: SimpleNamespace) -> None: ...
     def render_rect_filled(
-        self, x1: float, y1: float, x2: float, y2: float,
+        self,
+        x1: float,
+        y1: float,
+        x2: float,
+        y2: float,
     ) -> None: ...
     def get_results(self, box): ...
     def get_hinting_type(self) -> int: ...
@@ -27,7 +32,11 @@ class MathtextBackendPath(MathtextBackend):
     def __init__(self) -> None: ...
     def render_glyph(self, ox: float, oy: float, info: SimpleNamespace) -> None: ...
     def render_rect_filled(
-        self, x1: float, y1: float, x2: float, y2: float,
+        self,
+        x1: float,
+        y1: float,
+        x2: float,
+        y2: float,
     ) -> None: ...
     def get_results(self, box): ...
 

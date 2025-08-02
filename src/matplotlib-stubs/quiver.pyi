@@ -1,6 +1,7 @@
 from typing import Literal
 
-from ._typing import *
+from matplotlib._typing import Color
+
 from .artist import allow_rasterization, Artist
 from .axes import Axes
 from .backend_bases import MouseEvent, RendererBase
@@ -8,7 +9,6 @@ from .collections import PolyCollection
 from .figure import Figure
 
 class QuiverKey(Artist):
-
     halign = ...
     valign = ...
     pivot = ...

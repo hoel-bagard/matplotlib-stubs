@@ -1,7 +1,7 @@
 from typing import Literal
 
-from matplotlib._typing import *
 from matplotlib.axes import Axes
+from numpy.typing import ArrayLike
 
 def tripcolor(
     ax: Axes,

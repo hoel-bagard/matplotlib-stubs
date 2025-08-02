@@ -2,9 +2,9 @@ from collections.abc import Callable, Iterable, Sequence
 from tkinter import Label
 from typing import Literal
 
+from matplotlib._typing import ArrayLike, Color
 from matplotlib.collections import Collection
 
-from ._typing import *
 from .artist import Artist
 from .axes import Axes
 from .cm import ScalarMappable
@@ -78,13 +78,19 @@ class ContourSet(ScalarMappable, ContourLabeler):
     def get_transform(self) -> Transform: ...
     def __getstate__(self): ...
     def legend_elements(
-        self, variable_name: str = ..., str_format: Callable = ...,
+        self,
+        variable_name: str = ...,
+        str_format: Callable = ...,
     ) -> tuple[list[Artist], list[str]]: ...
     def changed(self) -> bool: ...
     def get_alpha(self) -> float: ...
     def set_alpha(self, alpha: float) -> None: ...
     def find_nearest_contour(
-        self, x: float, y: float, indices: list[int] | None = ..., pixel: bool = ...,
+        self,
+        x: float,
+        y: float,
+        indices: list[int] | None = ...,
+        pixel: bool = ...,
     ) -> tuple[Collection, int, int, tuple[float, float], float]: ...
 
 class QuadContourSet(ContourSet): ...

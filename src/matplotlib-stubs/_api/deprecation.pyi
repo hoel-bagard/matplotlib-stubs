@@ -34,17 +34,24 @@ class deprecate_privatize_attribute:
 DECORATORS: dict = ...
 
 def rename_parameter(
-    since: str, old: str, new: str, func: None | Callable = ...,
+    since: str,
+    old: str,
+    new: str,
+    func: None | Callable = ...,
 ) -> partial | Callable: ...
 
-class _deprecated_parameter_class:
-    def __repr__(self) -> str: ...
+class _deprecated_parameter_class: ...
 
 def delete_parameter(
-    since: str, name: str, func: None | Callable = ..., **kwargs,
+    since: str,
+    name: str,
+    func: None | Callable = ...,
+    **kwargs,
 ) -> partial | Callable: ...
 def make_keyword_only(
-    since: str, name: str, func: None | Callable = ...,
+    since: str,
+    name: str,
+    func: None | Callable = ...,
 ) -> partial | Callable: ...
 def deprecate_method_override(method, obj, *, allow_empty: bool = ..., **kwargs): ...
 @contextlib.contextmanager

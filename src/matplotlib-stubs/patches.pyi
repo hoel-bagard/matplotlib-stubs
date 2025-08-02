@@ -2,16 +2,15 @@ from collections.abc import Sequence
 from typing import Literal
 
 import numpy as np
+from matplotlib._typing import ArrayLike, Color, Scalar
 
 from ._enums import CapStyle, JoinStyle
-from ._typing import *
 from .artist import allow_rasterization, Artist
 from .backend_bases import MouseEvent, RendererBase
 from .path import Path
 from .transforms import Bbox, Transform
 
 class Patch(Artist):
-
     zorder: float = ...
 
     def __init__(
@@ -74,7 +73,8 @@ class Patch(Artist):
     def set_joinstyle(self, s: JoinStyle | Literal["miter", "round", "bevel"]): ...
     def get_joinstyle(self) -> JoinStyle | str: ...
     def set_hatch(
-        self, hatch: Literal["/", "\\", "|", "-", "+", "x", "o", "O", ".", "*"],
+        self,
+        hatch: Literal["/", "\\", "|", "-", "+", "x", "o", "O", ".", "*"],
     ): ...
     def get_hatch(self) -> str: ...
     @allow_rasterization
@@ -83,14 +83,12 @@ class Patch(Artist):
     def get_window_extent(self, renderer: RendererBase = ...): ...
 
 class Shadow(Patch):
-    def __str__(self) -> str: ...
     def __init__(self, patch: Patch, ox: float, oy: float, **kwargs) -> None: ...
     def get_path(self) -> Path: ...
     def get_patch_transform(self) -> Transform: ...
     def draw(self, renderer: RendererBase): ...
 
 class Rectangle(Patch):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         xy: Sequence[float],
@@ -126,7 +124,6 @@ class Rectangle(Patch):
     xy: tuple[float, float] = ...
 
 class RegularPolygon(Patch):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         xy: Sequence[float],
@@ -139,7 +136,6 @@ class RegularPolygon(Patch):
     def get_patch_transform(self) -> Transform: ...
 
 class PathPatch(Patch):
-    def __str__(self) -> str: ...
     def __init__(self, path: Path, **kwargs) -> None: ...
     def get_path(self) -> Path: ...
     def set_path(self, path: Path): ...
@@ -163,7 +159,6 @@ class StepPatch(PathPatch):
     ): ...
 
 class Polygon(Patch):
-    def __str__(self) -> str: ...
     def __init__(self, xy: Sequence[float], closed: bool = ..., **kwargs) -> None: ...
     def get_path(self) -> Path: ...
     def get_closed(self) -> bool: ...
@@ -173,7 +168,6 @@ class Polygon(Patch):
     xy = ...
 
 class Wedge(Patch):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         center: Sequence[float],
@@ -191,15 +185,19 @@ class Wedge(Patch):
     def get_path(self) -> Path: ...
 
 class Arrow(Patch):
-    def __str__(self) -> str: ...
     def __init__(
-        self, x: float, y: float, dx: float, dy: float, width: float = ..., **kwargs,
+        self,
+        x: float,
+        y: float,
+        dx: float,
+        dy: float,
+        width: float = ...,
+        **kwargs,
     ) -> None: ...
     def get_path(self) -> Path: ...
     def get_patch_transform(self) -> Transform: ...
 
 class FancyArrow(Polygon):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         x: float,
@@ -228,13 +226,15 @@ class FancyArrow(Polygon):
     ): ...
 
 class CirclePolygon(RegularPolygon):
-    def __str__(self) -> str: ...
     def __init__(
-        self, xy: Sequence[float], radius: float = ..., resolution=..., **kwargs,
+        self,
+        xy: Sequence[float],
+        radius: float = ...,
+        resolution=...,
+        **kwargs,
     ) -> None: ...
 
 class Ellipse(Patch):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         xy: Sequence[float],
@@ -268,7 +268,6 @@ class Annulus(Patch):
         angle: float = 0,
         **kwargs,
     ) -> None: ...
-    def __str__(self) -> str: ...
     def set_center(self, xy: Sequence[float]): ...
     def get_center(self) -> tuple[float, float]: ...
     center = ...
@@ -286,14 +285,12 @@ class Annulus(Patch):
     def get_path(self) -> Path: ...
 
 class Circle(Ellipse):
-    def __str__(self) -> str: ...
     def __init__(self, xy: Sequence[float], radius: float = ..., **kwargs) -> None: ...
     def set_radius(self, radius: float): ...
     def get_radius(self) -> float: ...
     radius: float = ...
 
 class Arc(Ellipse):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         xy: Sequence[float],
@@ -309,7 +306,10 @@ class Arc(Ellipse):
 
 def bbox_artist(artist, renderer: RendererBase, props: dict = ..., fill=...): ...
 def draw_bbox(
-    bbox, renderer: RendererBase, color: Color = ..., trans: Transform = ...,
+    bbox,
+    renderer: RendererBase,
+    color: Color = ...,
+    trans: Transform = ...,
 ): ...
 
 class _Style:
@@ -325,13 +325,23 @@ class BoxStyle(_Style):
     class Square:
         def __init__(self, pad: float = 0.3) -> None: ...
         def __call__(
-            self, x0: float, y0: float, width: float, height: float, mutation_size,
+            self,
+            x0: float,
+            y0: float,
+            width: float,
+            height: float,
+            mutation_size,
         ): ...
 
     class Circle:
         def __init__(self, pad: float = 0.3) -> None: ...
         def __call__(
-            self, x0: float, y0: float, width: float, height: float, mutation_size,
+            self,
+            x0: float,
+            y0: float,
+            width: float,
+            height: float,
+            mutation_size,
         ): ...
 
     class LArrow:
@@ -340,36 +350,66 @@ class BoxStyle(_Style):
 
     class RArrow(LArrow):
         def __call__(
-            self, x0: float, y0: float, width: float, height: float, mutation_size,
+            self,
+            x0: float,
+            y0: float,
+            width: float,
+            height: float,
+            mutation_size,
         ): ...
 
     class DArrow:
         def __init__(self, pad: float = 0.3) -> None: ...
         def __call__(
-            self, x0: float, y0: float, width: float, height: float, mutation_size,
+            self,
+            x0: float,
+            y0: float,
+            width: float,
+            height: float,
+            mutation_size,
         ): ...
 
     class Round:
         def __init__(self, pad=0.3, rounding_size: float = ...) -> None: ...
         def __call__(
-            self, x0: float, y0: float, width: float, height: float, mutation_size,
+            self,
+            x0: float,
+            y0: float,
+            width: float,
+            height: float,
+            mutation_size,
         ): ...
 
     class Round4:
         def __init__(self, pad: float = 0.3, rounding_size: float = ...) -> None: ...
         def __call__(
-            self, x0: float, y0: float, width: float, height: float, mutation_size,
+            self,
+            x0: float,
+            y0: float,
+            width: float,
+            height: float,
+            mutation_size,
         ): ...
 
     class Sawtooth:
         def __init__(self, pad: float = 0.3, tooth_size: float = ...) -> None: ...
         def __call__(
-            self, x0: float, y0: float, width: float, height: float, mutation_size,
+            self,
+            x0: float,
+            y0: float,
+            width: float,
+            height: float,
+            mutation_size,
         ): ...
 
     class Roundtooth(Sawtooth):
         def __call__(
-            self, x0: float, y0: float, width: float, height: float, mutation_size,
+            self,
+            x0: float,
+            y0: float,
+            width: float,
+            height: float,
+            mutation_size,
         ): ...
 
 class ConnectionStyle(_Style):
@@ -378,7 +418,13 @@ class ConnectionStyle(_Style):
             def __init__(self, xy: Sequence[float]) -> None: ...
 
         def __call__(
-            self, posA, posB, shrinkA=..., shrinkB=..., patchA=..., patchB=...,
+            self,
+            posA,
+            posB,
+            shrinkA=...,
+            shrinkB=...,
+            patchA=...,
+            patchB=...,
         ): ...
 
     class Arc3(_Base):
@@ -391,7 +437,10 @@ class ConnectionStyle(_Style):
 
     class Angle(_Base):
         def __init__(
-            self, angleA: float = ..., angleB: float = ..., rad: float = ...,
+            self,
+            angleA: float = ...,
+            angleB: float = ...,
+            rad: float = ...,
         ) -> None: ...
         def connect(self, posA, posB): ...
 
@@ -422,11 +471,14 @@ class ArrowStyle(_Style):
         def ensure_quadratic_bezier(path: Path): ...
         def transmute(self, path: Path, mutation_size, linewidth: float): ...
         def __call__(
-            self, path: Path, mutation_size, linewidth: float, aspect_ratio: float = ...,
+            self,
+            path: Path,
+            mutation_size,
+            linewidth: float,
+            aspect_ratio: float = ...,
         ): ...
 
     class _Curve(_Base):
-
         beginarrow = ...
         arrow = ...
         fillbegin = ...
@@ -449,45 +501,42 @@ class ArrowStyle(_Style):
         def __init__(self) -> None: ...
 
     class CurveA(_Curve):
-
         arrow = ...
 
     class CurveB(_Curve):
-
         arrow = ...
 
     class CurveAB(_Curve):
-
         arrow = ...
 
     class CurveFilledA(_Curve):
-
         arrow = ...
 
     class CurveFilledB(_Curve):
-
         arrow = ...
 
     class CurveFilledAB(_Curve):
-
         arrow = ...
 
     class BracketA(_Curve):
-
         arrow = ...
         def __init__(
-            self, widthA: float = ..., lengthA: float = ..., angleA: float = ...,
+            self,
+            widthA: float = ...,
+            lengthA: float = ...,
+            angleA: float = ...,
         ) -> None: ...
 
     class BracketB(_Curve):
-
         arrow = ...
         def __init__(
-            self, widthB: float = ..., lengthB: float = ..., angleB: float = ...,
+            self,
+            widthB: float = ...,
+            lengthB: float = ...,
+            angleB: float = ...,
         ) -> None: ...
 
     class BracketAB(_Curve):
-
         arrow = ...
         def __init__(
             self,
@@ -500,7 +549,6 @@ class ArrowStyle(_Style):
         ) -> None: ...
 
     class BarAB(_Curve):
-
         arrow = ...
         def __init__(
             self,
@@ -511,17 +559,21 @@ class ArrowStyle(_Style):
         ) -> None: ...
 
     class BracketCurve(_Curve):
-
         arrow = ...
         def __init__(
-            self, widthA: float = ..., lengthA: float = ..., angleA: float = ...,
+            self,
+            widthA: float = ...,
+            lengthA: float = ...,
+            angleA: float = ...,
         ) -> None: ...
 
     class CurveBracket(_Curve):
-
         arrow = ...
         def __init__(
-            self, widthB: float = ..., lengthB: float = ..., angleB: float = ...,
+            self,
+            widthB: float = ...,
+            lengthB: float = ...,
+            angleB: float = ...,
         ) -> None: ...
 
     class Simple(_Base):
@@ -544,12 +596,13 @@ class ArrowStyle(_Style):
 
     class Wedge(_Base):
         def __init__(
-            self, tail_width: float = ..., shrink_factor: float = ...,
+            self,
+            tail_width: float = ...,
+            shrink_factor: float = ...,
         ) -> None: ...
         def transmute(self, path: Path, mutation_size, linewidth: float): ...
 
 class FancyBboxPatch(Patch):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         xy: Sequence[float],
@@ -580,7 +633,6 @@ class FancyBboxPatch(Patch):
     def get_bbox(self) -> Bbox: ...
 
 class FancyArrowPatch(Patch):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         posA: Sequence[float] = ...,
@@ -597,12 +649,16 @@ class FancyArrowPatch(Patch):
         **kwargs,
     ) -> None: ...
     def set_positions(
-        self, posA: None | Sequence[float], posB: None | Sequence[Sequence],
+        self,
+        posA: None | Sequence[float],
+        posB: None | Sequence[Sequence],
     ): ...
     def set_patchA(self, patchA: Patch): ...
     def set_patchB(self, patchB: Patch): ...
     def set_connectionstyle(
-        self, connectionstyle: str | ConnectionStyle | None, **kwargs,
+        self,
+        connectionstyle: str | ConnectionStyle | None,
+        **kwargs,
     ): ...
     def get_connectionstyle(self) -> ConnectionStyle: ...
     def set_arrowstyle(self, arrowstyle: None | ArrowStyle | str = ..., **kwargs): ...
@@ -616,7 +672,6 @@ class FancyArrowPatch(Patch):
     def draw(self, renderer: RendererBase): ...
 
 class ConnectionPatch(FancyArrowPatch):
-    def __str__(self) -> str: ...
     def __init__(
         self,
         xyA: Sequence[float],
