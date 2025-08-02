@@ -2,7 +2,7 @@ from collections.abc import Callable, Sequence
 from typing import Literal
 
 import numpy as np
-from matplotlib._typing import ArrayLike, Scalar
+from matplotlib._stubs_utils._typing import ArrayLike, Scalar
 
 def window_hanning(x): ...
 def window_none(x): ...

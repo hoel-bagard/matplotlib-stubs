@@ -2,7 +2,7 @@ from collections import OrderedDict
 from collections.abc import MutableMapping, Sequence
 from functools import partial
 
-from matplotlib._typing import Color
+from matplotlib._stubs_utils._typing import Color
 
 from .artist import allow_rasterization
 from .axes import Axes

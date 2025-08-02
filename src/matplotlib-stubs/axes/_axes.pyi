@@ -3,7 +3,7 @@ from collections.abc import Callable, Sequence
 from typing import Literal, overload
 
 import numpy as np
-from matplotlib._typing import ArrayLike, Color, Scalar
+from matplotlib._stubs_utils._typing import ArrayLike, Color, Scalar
 from matplotlib.artist import Artist
 from matplotlib.axes._secondary_axes import SecondaryAxis
 from matplotlib.axis import XAxis, YAxis

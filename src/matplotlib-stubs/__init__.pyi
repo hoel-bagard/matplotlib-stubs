@@ -4,7 +4,7 @@ import contextlib
 from collections.abc import Generator
 from typing import Literal
 
-from matplotlib._typing import PathLike
+from matplotlib._stubs_utils._typing import PathLike
 
 from . import colors as colors
 

@@ -2,7 +2,7 @@ from collections.abc import Sequence
 from functools import lru_cache
 
 import numpy as np
-from matplotlib._typing import ArrayLike
+from matplotlib._stubs_utils._typing import ArrayLike
 
 from .transforms import Affine2D, Bbox, Transform
 

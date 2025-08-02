@@ -3,7 +3,7 @@ from typing import Literal
 
 import numpy as np
 from matplotlib._enums import CapStyle, JoinStyle
-from matplotlib._typing import ArrayLike, Color, Scalar
+from matplotlib._stubs_utils._typing import ArrayLike, Color, Scalar
 from matplotlib.artist import allow_rasterization, Artist
 from matplotlib.backend_bases import Event, MouseEvent
 from matplotlib.cm import ScalarMappable

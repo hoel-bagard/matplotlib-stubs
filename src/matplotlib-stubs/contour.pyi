@@ -2,7 +2,7 @@ from collections.abc import Callable, Iterable, Sequence
 from tkinter import Label
 from typing import Literal
 
-from matplotlib._typing import ArrayLike, Color
+from matplotlib._stubs_utils._typing import ArrayLike, Color
 from matplotlib.collections import Collection
 
 from .artist import Artist

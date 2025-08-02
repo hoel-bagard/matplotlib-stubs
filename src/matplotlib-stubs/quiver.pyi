@@ -1,6 +1,6 @@
 from typing import Literal
 
-from matplotlib._typing import Color
+from matplotlib._stubs_utils._typing import Color
 
 from .artist import allow_rasterization, Artist
 from .axes import Axes

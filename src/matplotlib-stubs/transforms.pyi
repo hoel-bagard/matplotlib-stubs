@@ -2,7 +2,7 @@ from collections.abc import Sequence
 from typing import Literal
 
 import numpy as np
-from matplotlib._typing import ArrayLike
+from matplotlib._stubs_utils._typing import ArrayLike
 from matplotlib.figure import Figure
 from matplotlib.patches import Patch
 from matplotlib.path import Path

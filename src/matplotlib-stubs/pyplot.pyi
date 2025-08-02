@@ -12,7 +12,7 @@ from matplotlib._stubs_utils._properties import (
     TextProperties,
     TitleTextProperties,
 )
-from matplotlib._typing import ArrayLike, Color, FileLike, PathLike, Scalar
+from matplotlib._stubs_utils._typing import ArrayLike, Color, FileLike, PathLike, Scalar
 from matplotlib.colorizer import Colorizer
 from matplotlib.contour import QuadContourSet
 from matplotlib.layout_engine import LayoutEngine

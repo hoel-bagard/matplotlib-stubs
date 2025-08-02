@@ -3,7 +3,7 @@ from io import BufferedWriter, BytesIO
 from typing import Literal, overload
 
 import numpy as np
-from matplotlib._typing import Color, FileLike, PathLike
+from matplotlib._stubs_utils._typing import Color, FileLike, PathLike
 from mpl_toolkits.mplot3d import Axes3D  # pyright: ignore[reportMissingTypeStubs]
 from numpy.typing import ArrayLike
 

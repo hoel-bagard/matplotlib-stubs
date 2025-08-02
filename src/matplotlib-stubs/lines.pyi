@@ -2,7 +2,7 @@ from collections.abc import Callable, Sequence
 from typing import Any, Literal
 
 import numpy as np
-from matplotlib._typing import ArrayLike, Color
+from matplotlib._stubs_utils._typing import ArrayLike, Color
 from matplotlib.markers import MarkerStyle
 
 from ._enums import CapStyle, JoinStyle

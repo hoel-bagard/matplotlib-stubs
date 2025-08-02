@@ -2,7 +2,7 @@ from collections.abc import Callable, Collection, MutableSequence, Sequence
 from typing import Any, Literal, overload
 
 import numpy as np
-from matplotlib._typing import Color
+from matplotlib._stubs_utils._typing import Color
 from matplotlib.artist import allow_rasterization, Artist
 from matplotlib.axis import XAxis, YAxis
 from matplotlib.backend_bases import MouseButton, MouseEvent, RendererBase

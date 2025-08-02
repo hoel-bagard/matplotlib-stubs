@@ -1,6 +1,6 @@
 from enum import Enum
 
-from matplotlib._typing import Scalar
+from matplotlib._stubs_utils._typing import Scalar
 from matplotlib.backend_bases import _Backend, FigureCanvasBase, FigureManagerBase, GraphicsContextBase
 from matplotlib.font_manager import FontProperties
 from matplotlib.text import Text

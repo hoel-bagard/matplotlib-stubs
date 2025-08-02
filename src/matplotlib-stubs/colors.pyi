@@ -6,7 +6,7 @@ from typing import Literal, overload
 
 import numpy as np
 import numpy.typing as npt
-from matplotlib._typing import Color, RGBAColor, RGBAColorInt, RGBColor
+from matplotlib._stubs_utils._typing import Color, RGBAColor, RGBAColorInt, RGBColor
 from numpy.typing import ArrayLike
 
 from .scale import AsinhScale, FuncScale, LogScale, SymmetricalLogScale
