@@ -31,13 +31,33 @@ build-backend = "hatchling.build"
 [dependency-groups]
 build = ["hatch>=1.14.1"]
 dev = [
+    "ipython>=8.12.3",
+    "pre-commit>=3.5.0",
+]
+lint = [
+  # Typing
+  "pyright>=1.1.389",
   "pygobject-stubs>=2.12.0",
   "pandas-stubs>=2.0.2.230605",
-  "pip-tools>=7.5.0",
-  "pre-commit>=3.5.0",
-  "pyright>=1.1.403",
-  "ruff>=0.12.7",
   "traitlets>=5.14.3",
+  # Python formatting
+  "ruff>=0.11.9",
+  # Spelling
+  "codespell>=2.3.0",
+  # Markdown
+  "mdformat>=0.7.22; python_version >= '3.9'",
+  # To support GitHub's Markdown
+  "mdformat-footnote>=0.1.1",
+  "mdformat-frontmatter>=2.0.8; python_version >= '3.9'",
+  "mdformat-gfm>=0.3.6; python_version >= '3.9'",
+  "mdformat-gfm-alerts>=1.0.1; python_version >= '3.9'",
+  # Format python, bash (requires shfmt to be present), JSON, TOML and YAML code blocks.
+  "markdown-format-ruff>=1.0.0",
+  "mdformat-shfmt>=0.1.0",
+  "mdformat-taplo>=0.9.3",
+  "mdformat-yamlfmt>=0.0.1",
+  "mdformat-json>=1.0.0",
+  "matplotlib-stubs>=0.2.0",
 ]
 test = ["mypy>=1.14.1", "pytest>=8.3.5", "pytest-mypy-plugins>=3.1.2"]
 
