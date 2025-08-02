@@ -3,7 +3,7 @@ from collections.abc import Callable, Sequence
 from pathlib import PosixPath
 from typing import Any, Literal
 
-from matplotlib._typing import Color
+from matplotlib._stubs_utils._typing import Color
 from matplotlib.path import Path
 
 from .artist import allow_rasterization, Artist

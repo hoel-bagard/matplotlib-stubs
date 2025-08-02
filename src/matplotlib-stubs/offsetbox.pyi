@@ -1,7 +1,7 @@
 from collections.abc import Callable, Sequence
 from typing import Literal
 
-from matplotlib._typing import ArrayLike
+from matplotlib._stubs_utils._typing import ArrayLike
 
 from .artist import Artist
 from .backend_bases import Event, MouseEvent, RendererBase

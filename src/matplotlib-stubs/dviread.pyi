@@ -1,7 +1,7 @@
 from collections import namedtuple
 from functools import lru_cache
 
-from matplotlib._typing import PathLike
+from matplotlib._stubs_utils._typing import PathLike
 
 from .path import Path
 

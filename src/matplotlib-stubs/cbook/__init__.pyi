@@ -5,7 +5,7 @@ from collections.abc import Callable, Generator, Iterator
 from typing import Any, overload
 
 import numpy as np
-from matplotlib._typing import ArrayLike, FileLike, PathLike
+from matplotlib._stubs_utils._typing import ArrayLike, FileLike, PathLike
 from matplotlib.artist import Artist
 
 class _StrongRef:

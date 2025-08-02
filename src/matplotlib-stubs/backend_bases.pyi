@@ -3,7 +3,7 @@ from enum import Enum, IntEnum
 from typing import Any, Literal
 
 from matplotlib._api import classproperty
-from matplotlib._typing import ArrayLike, Color, FileLike, PathLike, Scalar
+from matplotlib._stubs_utils._typing import ArrayLike, Color, FileLike, PathLike, Scalar
 
 from . import backend_tools as tools
 from ._enums import CapStyle, JoinStyle

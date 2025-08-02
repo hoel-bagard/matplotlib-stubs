@@ -3,7 +3,7 @@ from typing import Any, Callable, Literal, Sequence, TypedDict
 
 import numpy.typing as npt
 from matplotlib._enums import CapStyle, JoinStyle
-from matplotlib._typing import RGBAColor
+from matplotlib._stubs_utils._typing import RGBAColor
 from matplotlib.artist import Artist
 from matplotlib.backend_bases import Event
 from matplotlib.colors import Colormap, Normalize

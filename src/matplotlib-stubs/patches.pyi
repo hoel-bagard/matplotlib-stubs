@@ -2,7 +2,7 @@ from collections.abc import Sequence
 from typing import Literal
 
 import numpy as np
-from matplotlib._typing import ArrayLike, Color, Scalar
+from matplotlib._stubs_utils._typing import ArrayLike, Color, Scalar
 
 from ._enums import CapStyle, JoinStyle
 from .artist import allow_rasterization, Artist

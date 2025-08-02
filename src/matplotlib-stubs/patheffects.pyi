@@ -1,6 +1,6 @@
 from collections.abc import Callable, Iterable, Sequence
 
-from matplotlib._typing import Color
+from matplotlib._stubs_utils._typing import Color
 
 from .backend_bases import GraphicsContextBase, RendererBase
 from .transforms import Transform

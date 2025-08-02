@@ -1,6 +1,6 @@
 from types import SimpleNamespace
 
-from matplotlib._typing import FileLike, PathLike
+from matplotlib._stubs_utils._typing import FileLike, PathLike
 
 from .font_manager import FontProperties
 

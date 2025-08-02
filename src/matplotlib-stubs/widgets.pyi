@@ -4,7 +4,7 @@ from typing import (
 )
 
 import numpy as np
-from matplotlib._typing import Color
+from matplotlib._stubs_utils._typing import Color
 from matplotlib.artist import Artist
 from matplotlib.axes._axes import Axes
 from matplotlib.backend_bases import DrawEvent, Event, FigureCanvasBase, KeyEvent, MouseButton, MouseEvent

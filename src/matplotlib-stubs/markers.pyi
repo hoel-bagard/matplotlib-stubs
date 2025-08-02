@@ -1,6 +1,6 @@
 from typing import Literal
 
-from matplotlib._typing import ArrayLike
+from matplotlib._stubs_utils._typing import ArrayLike
 
 from ._enums import CapStyle, JoinStyle
 from .path import Path

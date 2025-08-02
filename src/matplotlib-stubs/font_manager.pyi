@@ -4,7 +4,7 @@ from functools import lru_cache
 from pathlib import PosixPath
 from typing import Literal
 
-from matplotlib._typing import PathLike
+from matplotlib._stubs_utils._typing import PathLike
 from matplotlib.ft2font import FT2Font
 
 from ._afm import AFM

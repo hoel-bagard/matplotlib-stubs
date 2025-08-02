@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from typing import Any
 
-from matplotlib._typing import ArrayLike, FileLike, PathLike, Scalar
+from matplotlib._stubs_utils._typing import ArrayLike, FileLike, PathLike, Scalar
 from matplotlib.backend_bases import (
     _Backend,
     FigureCanvasBase,

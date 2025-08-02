@@ -1,4 +1,4 @@
-from matplotlib._typing import Scalar
+from matplotlib._stubs_utils._typing import Scalar
 from matplotlib.backend_bases import RendererBase
 from matplotlib.figure import Figure
 

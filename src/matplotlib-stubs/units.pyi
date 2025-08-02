@@ -1,7 +1,7 @@
 from collections.abc import Iterable, Sequence
 from datetime import date
 
-from matplotlib._typing import Decimal
+from matplotlib._stubs_utils._typing import Decimal
 
 from .axis import Axis
 from .ticker import Formatter, Locator

@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from typing import Literal
 
-from matplotlib._typing import Color
+from matplotlib._stubs_utils._typing import Color
 from matplotlib.axes._base import _AxesBase
 from matplotlib.transforms import Transform
 
