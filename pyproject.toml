@@ -1,81 +1,57 @@
-[build-system]
-requires = ["hatchling>=1.10.0"]
-build-backend = "hatchling.build"
-
 [project]
 name = "matplotlib-stubs"
-authors = [{name="Bagard Hoel"}]
+dynamic = ["version"]
+authors = [{ name = "Bagard Hoel" }]
 description = "Unofficial stubs for the matplotlib package."
 keywords = ["matplotlib", "stubs"]
 readme = "README.md"
 classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: Implementation :: CPython",
-    "Operating System :: OS Independent",
-    "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
 ]
-license = {text = "MIT"}
-dynamic = ["version"]
-dependencies = [
-    "matplotlib>=3.0",
-    "numpy~=1.20",
-    "pandas~=2.0",
-]
+license = { text = "MIT" }
+dependencies = ["matplotlib>=3.0", "numpy>=1.21", "pandas>=2.0"]
 requires-python = ">=3.8"
-packages = [
-    { "include" = "matplotlib-stubs"}
-]
 
 [project.urls]
 "Homepage" = "https://github.com/hoel-bagard/matplotlib-stubs"
 "Bug Tracker" = "https://github.com/hoel-bagard/matplotlib-stubs/issues"
 
-[project.optional-dependencies]
+[build-system]
+requires = ["hatchling>=1.10.0"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+build = [
+    "hatch>=1.14.1",
+]
 dev = [
-    "pandas-stubs",
-    "pip-tools",
-    "pre-commit",
-    "pyright",
-    "ruff",
+  "pandas-stubs>=2.0.2.230605",
+  "pip-tools>=7.5.0",
+  "pre-commit>=3.5.0",
+  "pyright>=1.1.403",
+  "ruff>=0.12.7",
 ]
-test = [
-    "matplotlib-stubs[dev]",
-    "mypy",
-    "pytest",
-    "pytest-mypy-plugins",
-]
-build = ["hatch"]
+test = ["mypy>=1.14.1", "pytest>=8.3.5", "pytest-mypy-plugins>=3.1.2"]
 
 [tool.hatch.version]
 path = "src/matplotlib-stubs/__init__.pyi"
 
 [tool.hatch.build.targets.sdist]
-exclude = [
-  "/.github",
-  "/.pytest_cache",
-  "/build",
-  "/dist",
-  "/docs",
-]
+exclude = ["/.github", "/.pytest_cache", "/build", "/dist", "/docs"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/matplotlib-stubs"]
 
-[tool.hatch.envs.pypi.scripts]
-# hatch run pypi:publish_test
-publish_test = "hatch build --clean && hatch publish -r test"
-publish = "hatch build --clean && hatch publish"
-
 [tool.ruff]
 select = ["ALL"]
-# A003 Class attribute `X` is shadowing a python builtin
-# B006: Do not use mutable data structures for argument defaults
-# PYI021: Docstrings should not be included in stubs
 ignore = ["A003", "B006", "D", "FBT", "N", "PYI021"]
 line-length = 10000
 
@@ -128,3 +104,6 @@ reportMatchNotExhaustive = "warning"
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "--mypy-only-local-stub"
+
+[tool.uv.sources]
+matplotlib-stubs = { workspace = true }
