@@ -4,16 +4,16 @@ from typing import (
 )
 
 import numpy as np
+from matplotlib._typing import Color
+from matplotlib.artist import Artist
 from matplotlib.axes._axes import Axes
-from matplotlib.backend_bases import MouseButton
+from matplotlib.backend_bases import DrawEvent, Event, KeyEvent, MouseButton, MouseEvent
 from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
+from matplotlib.patches import Circle
 from numpy import ndarray
 from numpy.typing import ArrayLike
-
-from . import _api
-from .lines import Line2D
-from .patches import Circle
+from PIL.Image import Image
 
 class LockDraw:
     def __init__(self) -> None: ...
@@ -378,7 +378,6 @@ class LassoSelector(_SelectorWidget):
         props: Mapping | None = None,
         button: MouseButton | Sequence[MouseButton] | None = None,
     ) -> None: ...
-    @_api.deprecated("3.5", alternative="press")
     def onpress(self, event): ...
     def onrelease(self, event): ...
 

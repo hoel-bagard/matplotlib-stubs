@@ -1,13 +1,14 @@
 from collections import namedtuple
 from functools import lru_cache
 
-from ._typing import *
+from matplotlib._typing import PathLike
+
 from .path import Path
 
 Page = ...
 Box = ...
 
-class Text(namedtuple("Text", "x y font glyph width")):
+class Text(namedtuple("Text", "x y font glyph width")):  # pyright: ignore[reportUntypedNamedTuple]
     @property
     def font_path(self) -> Path: ...
     @property

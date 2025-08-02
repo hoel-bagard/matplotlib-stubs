@@ -1,7 +1,7 @@
 from typing import Literal, overload
 
 import numpy as np
-from matplotlib._typing import *
+from matplotlib._typing import ArrayLike
 
 from .triangulation import Triangulation
 from .trifinder import TriFinder

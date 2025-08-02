@@ -6,7 +6,8 @@ from typing import Literal, overload
 
 import numpy as np
 import numpy.typing as npt
-from matplotlib._typing import *
+from matplotlib._typing import Color, RGBColor
+from numpy.typing import ArrayLike
 
 from .scale import AsinhScale, FuncScale, LogScale, SymmetricalLogScale
 
@@ -156,7 +157,7 @@ class CenteredNorm(Normalize):
 def make_norm_from_scale(scale_cls, base_norm_cls=..., *, init=...): ...
 @make_norm_from_scale(
     FuncScale,
-    init=lambda functions, vmin=None, vmax=None, clip=False: None,
+    init=lambda functions, vmin=None, vmax=None, clip=False: None,  # pyright: ignore[reportUnknownLambdaType]
 )
 class FuncNorm(Normalize): ...
 
@@ -165,7 +166,7 @@ class LogNorm(Normalize): ...
 
 @make_norm_from_scale(
     SymmetricalLogScale,
-    init=lambda linthresh, linscale=1, vmin=None, vmax=None, clip=False, *, base=10: None,
+    init=lambda linthresh, linscale=1, vmin=None, vmax=None, clip=False, *, base=10: None,  # pyright: ignore[reportUnknownLambdaType]
 )
 class SymLogNorm(Normalize):
     @property
@@ -175,7 +176,7 @@ class SymLogNorm(Normalize):
 
 @make_norm_from_scale(
     AsinhScale,
-    init=lambda linear_width=1, vmin=None, vmax=None, clip=False: None,
+    init=lambda linear_width=1, vmin=None, vmax=None, clip=False: None,  # pyright: ignore[reportUnknownLambdaType]
 )
 class AsinhNorm(Normalize):
     @property

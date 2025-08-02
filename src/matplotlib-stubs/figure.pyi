@@ -3,9 +3,10 @@ from io import BufferedWriter, BytesIO
 from typing import Literal, overload
 
 import numpy as np
-from mpl_toolkits.mplot3d import Axes3D
+from matplotlib._typing import Color, FileLike, PathLike
+from mpl_toolkits.mplot3d import Axes3D  # pyright: ignore[reportMissingTypeStubs]
+from numpy.typing import ArrayLike
 
-from ._typing import *
 from .artist import allow_rasterization, Artist
 from .axes import Axes
 from .backend_bases import FigureCanvasBase, MouseButton, MouseEvent, RendererBase
@@ -74,7 +75,7 @@ class FigureBase(Artist):
     def add_artist(self, artist: Artist, clip: bool = False) -> Artist: ...
     def add_axes(self, *args, **kwargs) -> Axes: ...
     @overload
-    def add_subplot(self, *args, projection: Literal["3d"], **kwargs) -> Axes3D: ...
+    def add_subplot(self, *args, projection: Literal["3d"], **kwargs) -> Axes3D: ...  # pyright: ignore[reportGeneralTypeIssues]
     @overload
     def add_subplot(self, *args, **kwargs) -> Axes: ...
     @overload
