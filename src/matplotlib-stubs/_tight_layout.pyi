@@ -13,9 +13,9 @@ def auto_adjust_subplotpars(
     subplot_list: Sequence[SubplotBase],
     ax_bbox_list=None,
     pad: float = 1.08,
-    h_pad: float|None = None,
-    w_pad: float|None = None,
-    rect: tuple[float, float, float, float]|None = None,
+    h_pad: float | None = None,
+    w_pad: float | None = None,
+    rect: tuple[float, float, float, float] | None = None,
 ) -> dict | None: ...
 def get_renderer(fig: Figure) -> RendererBase: ...
 def get_subplotspec_list(axes_list, grid_spec=None) -> list[SubplotSpec]: ...
@@ -25,7 +25,7 @@ def get_tight_layout_figure(
     subplotspec_list: list,
     renderer: RendererBase,
     pad: float = 1.08,
-    h_pad: float|None = None,
-    w_pad: float|None = None,
-    rect: tuple[float, float, float, float]|None = None,
+    h_pad: float | None = None,
+    w_pad: float | None = None,
+    rect: tuple[float, float, float, float] | None = None,
 ) -> SubplotSpec | None: ...

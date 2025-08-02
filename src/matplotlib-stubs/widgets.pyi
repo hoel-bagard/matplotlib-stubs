@@ -67,7 +67,6 @@ class SliderBase(AxesWidget):
     def reset(self): ...
 
 class Slider(SliderBase):
-
     val: float
 
     def __init__(
@@ -95,7 +94,6 @@ class Slider(SliderBase):
     def on_changed(self, func: Callable) -> int: ...
 
 class RangeSlider(SliderBase):
-
     val: tuple[float, ...]
 
     def __init__(
@@ -122,7 +120,10 @@ class RangeSlider(SliderBase):
 
 class CheckButtons(AxesWidget):
     def __init__(
-        self, ax: Axes, labels: Sequence[str], actives: Sequence[bool] = ...,
+        self,
+        ax: Axes,
+        labels: Sequence[str],
+        actives: Sequence[bool] = ...,
     ) -> None: ...
     def set_active(self, index: int): ...
     def get_status(self) -> tuple[bool, ...]: ...
@@ -130,7 +131,6 @@ class CheckButtons(AxesWidget):
     def disconnect(self, cid) -> None: ...
 
 class TextBox(AxesWidget):
-
     DIST_FROM_LEFT = ...
     def __init__(
         self,
@@ -153,7 +153,6 @@ class TextBox(AxesWidget):
     def disconnect(self, cid): ...
 
 class RadioButtons(AxesWidget):
-
     ax: Axes
     activecolor: Color
     labels: list[Text]
@@ -315,7 +314,7 @@ class ToolHandles:
     def set_data(
         self,
         pts: tuple[float, float, float],
-        y: tuple[float, float, float]|None = None,
+        y: tuple[float, float, float] | None = None,
     ) -> None: ...
     def set_visible(self, val): ...
     def set_animated(self, val): ...
@@ -368,7 +367,6 @@ class RectangleSelector(_SelectorWidget):
     def geometry(self) -> np.ndarray: ...
 
 class EllipseSelector(RectangleSelector):
-
     draw_shape = ...
 
 class LassoSelector(_SelectorWidget):
@@ -398,7 +396,6 @@ class PolygonSelector(_SelectorWidget):
         box_handle_props: Mapping | None = None,
         box_props: Mapping | None = None,
     ) -> None: ...
-
 
     line = ...
     vertex_select_radius = ...

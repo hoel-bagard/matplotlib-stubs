@@ -10,7 +10,7 @@ class MixedModeRenderer:
         height: Scalar,
         dpi: float,
         vector_renderer: RendererBase,
-        raster_renderer_class: RendererBase|None = None,
+        raster_renderer_class: RendererBase | None = None,
         bbox_inches_restore=None,
     ) -> None: ...
     def __getattr__(self, attr: str): ...

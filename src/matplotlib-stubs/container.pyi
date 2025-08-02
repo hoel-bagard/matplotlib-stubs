@@ -8,7 +8,6 @@ from .lines import Line2D
 from .patches import Rectangle
 
 class Container(tuple):
-    def __repr__(self) -> str: ...
     def __new__(cls: type[Container], *args, **kwargs) -> Container: ...
     def __init__(self, kl: list[Rectangle], label: str = ...) -> None: ...
     def remove(self) -> None: ...
@@ -21,7 +20,6 @@ class Container(tuple):
     pchanged = Artist.pchanged
 
 class BarContainer(Container):
-
     patches: list[Rectangle]
     errorbar: None | ErrorbarContainer
     datavalues: None | ArrayLike
@@ -38,7 +36,6 @@ class BarContainer(Container):
     ) -> None: ...
 
 class ErrorbarContainer(Container):
-
     lines: tuple[Line2D, tuple[Line2D, ...], list[LineCollection]]
     has_xerr: bool
     has_yerr: bool
@@ -52,7 +49,6 @@ class ErrorbarContainer(Container):
     ) -> None: ...
 
 class StemContainer(Container):
-
     markerline: Line2D
     stemlines: list[Line2D]
     baseline: Line2D

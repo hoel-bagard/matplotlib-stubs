@@ -7,38 +7,37 @@ from .axis import Axis
 from .scale import SymmetricalLogTransform
 
 __all__ = (
-    "TickHelper",
-    "Formatter",
+    "AsinhLocator",
+    "AutoLocator",
+    "AutoMinorLocator",
+    "EngFormatter",
     "FixedFormatter",
-    "NullFormatter",
-    "FuncFormatter",
+    "FixedLocator",
     "FormatStrFormatter",
-    "StrMethodFormatter",
-    "ScalarFormatter",
+    "Formatter",
+    "FuncFormatter",
+    "IndexLocator",
+    "LinearLocator",
+    "Locator",
     "LogFormatter",
     "LogFormatterExponent",
     "LogFormatterMathtext",
     "LogFormatterSciNotation",
-    "LogitFormatter",
-    "EngFormatter",
-    "PercentFormatter",
-    "Locator",
-    "IndexLocator",
-    "FixedLocator",
-    "NullLocator",
-    "LinearLocator",
     "LogLocator",
-    "AutoLocator",
-    "MultipleLocator",
-    "MaxNLocator",
-    "AutoMinorLocator",
-    "SymmetricalLogLocator",
-    "AsinhLocator",
+    "LogitFormatter",
     "LogitLocator",
+    "MaxNLocator",
+    "MultipleLocator",
+    "NullFormatter",
+    "NullLocator",
+    "PercentFormatter",
+    "ScalarFormatter",
+    "StrMethodFormatter",
+    "SymmetricalLogLocator",
+    "TickHelper",
 )
 
 class _DummyAxis:
-
     dataLim = ...
     viewLim = ...
     def __init__(self, minpos: int = ...) -> None: ...
@@ -58,7 +57,6 @@ class TickHelper:
     def set_bounds(self, vmin: float, vmax: float): ...
 
 class Formatter(TickHelper):
-
     locs = ...
     def __call__(self, x, pos=...): ...
     def format_ticks(self, values: Sequence[float]) -> list[str]: ...
@@ -157,7 +155,6 @@ class LogitFormatter(Formatter):
     def format_data_short(self, value) -> str: ...
 
 class EngFormatter(Formatter):
-
     ENG_PREFIXES = ...
     def __init__(
         self,
@@ -196,7 +193,6 @@ class PercentFormatter(Formatter):
     def symbol(self, symbol: str): ...
 
 class Locator(TickHelper):
-
     MAXTICKS = ...
     def tick_values(self, vmin: float, vmax: float): ...
     def set_params(self, **kwargs): ...
@@ -240,7 +236,10 @@ class MultipleLocator(Locator):
     def view_limits(self, dmin: float, dmax: float): ...
 
 def scale_range(
-    vmin: float, vmax: float, n: int = ..., threshold: int = ...,
+    vmin: float,
+    vmax: float,
+    n: int = ...,
+    threshold: int = ...,
 ) -> tuple[float, int]: ...
 
 class _Edge_integer:
@@ -250,7 +249,6 @@ class _Edge_integer:
     def ge(self, x: float) -> float: ...
 
 class MaxNLocator(Locator):
-
     default_params = ...
     def __init__(self, nbins: int | Literal["auto"] = 10, **kwargs) -> None: ...
     def set_params(self, **kwargs) -> None: ...
@@ -317,7 +315,10 @@ class AsinhLocator(Locator):
 
 class LogitLocator(MaxNLocator):
     def __init__(
-        self, minor: bool = ..., *, nbins: int | Literal["auto"] = ...,
+        self,
+        minor: bool = ...,
+        *,
+        nbins: int | Literal["auto"] = ...,
     ) -> None: ...
     def set_params(self, minor: None = ..., **kwargs) -> None: ...
     @property

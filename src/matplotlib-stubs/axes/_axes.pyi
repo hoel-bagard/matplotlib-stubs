@@ -40,7 +40,6 @@ from matplotlib.tri import triplot as tri_triplot
 from ._base import _AxesBase
 
 class Axes(_AxesBase):
-
     dataLim: Bbox
     viewLim: Bbox
     figure: Figure
@@ -102,7 +101,12 @@ class Axes(_AxesBase):
         **kwargs,
     ) -> SecondaryAxis: ...
     def text(
-        self, x: float, y: float, s: str, fontdict: dict = ..., **kwargs,
+        self,
+        x: float,
+        y: float,
+        s: str,
+        fontdict: dict = ...,
+        **kwargs,
     ) -> Text: ...
     def annotate(
         self,
@@ -116,10 +120,18 @@ class Axes(_AxesBase):
         **kwargs,
     ) -> Annotation: ...
     def axhline(
-        self, y: float = 0, xmin: float = 0, xmax: float = 1, **kwargs,
+        self,
+        y: float = 0,
+        xmin: float = 0,
+        xmax: float = 1,
+        **kwargs,
     ) -> Line2D: ...
     def axvline(
-        self, x: float = ..., ymin: float = ..., ymax: float = ..., **kwargs,
+        self,
+        x: float = ...,
+        ymin: float = ...,
+        ymax: float = ...,
+        **kwargs,
     ) -> Line2D: ...
     def axline(
         self,
@@ -130,10 +142,20 @@ class Axes(_AxesBase):
         **kwargs,
     ) -> Line2D: ...
     def axhspan(
-        self, ymin: float, ymax: float, xmin: float = ..., xmax: float = ..., **kwargs,
+        self,
+        ymin: float,
+        ymax: float,
+        xmin: float = ...,
+        xmax: float = ...,
+        **kwargs,
     ) -> Polygon: ...
     def axvspan(
-        self, xmin: float, xmax: float, ymin: float = 0, ymax: float = 1, **kwargs,
+        self,
+        xmin: float,
+        xmax: float,
+        ymin: float = 0,
+        ymax: float = 1,
+        **kwargs,
     ) -> Polygon: ...
     def hlines(
         self,
@@ -167,7 +189,12 @@ class Axes(_AxesBase):
         **kwargs,
     ) -> list[EventCollection]: ...
     def plot(
-        self, *args, scalex=..., scaley=..., data=..., **kwargs,
+        self,
+        *args,
+        scalex=...,
+        scaley=...,
+        data=...,
+        **kwargs,
     ) -> list[Line2D]: ...
     def plot_date(
         self,
@@ -383,10 +410,21 @@ class Axes(_AxesBase):
         **kwargs,
     ) -> PolyCollection: ...
     def arrow(
-        self, x: float, y: float, dx: float, dy: float, **kwargs,
+        self,
+        x: float,
+        y: float,
+        dx: float,
+        dy: float,
+        **kwargs,
     ) -> FancyArrow: ...
     def quiverkey(
-        self, Q: Quiver, X: float, Y: float, U: float, label: str, **kwargs,
+        self,
+        Q: Quiver,
+        X: float,
+        Y: float,
+        U: float,
+        label: str,
+        **kwargs,
     ): ...
     def quiver(self, *args, **kwargs) -> Quiver: ...
     def barbs(self, *args, **kwargs) -> Barbs: ...
@@ -528,7 +566,7 @@ class Axes(_AxesBase):
         cmin: float | None = None,
         cmax: float | None = None,
         **kwargs,
-    ) -> tuple[np.ndarray, np.ndarray, np.ndarray, tuple[float, float]|None]: ...
+    ) -> tuple[np.ndarray, np.ndarray, np.ndarray, tuple[float, float] | None]: ...
     def psd(
         self,
         x: Sequence,

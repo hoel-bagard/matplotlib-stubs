@@ -17,7 +17,10 @@ class HandlerBase:
         update_func: Callable = ...,
     ) -> None: ...
     def update_prop(
-        self, legend_handle: Artist, orig_handle: Artist, legend: Legend,
+        self,
+        legend_handle: Artist,
+        orig_handle: Artist,
+        legend: Legend,
     ): ...
     def adjust_drawing_area(
         self,
@@ -30,7 +33,11 @@ class HandlerBase:
         fontsize: int,
     ): ...
     def legend_artist(
-        self, legend: Legend, orig_handle: Artist, fontsize: int, handlebox: OffsetBox,
+        self,
+        legend: Legend,
+        orig_handle: Artist,
+        fontsize: int,
+        handlebox: OffsetBox,
     ): ...
     def create_artists(
         self,
@@ -46,19 +53,37 @@ class HandlerBase:
 
 class HandlerNpoints(HandlerBase):
     def __init__(
-        self, marker_pad: float = ..., numpoints: None = ..., **kwargs,
+        self,
+        marker_pad: float = ...,
+        numpoints: None = ...,
+        **kwargs,
     ) -> None: ...
     def get_numpoints(self, legend: Legend): ...
     def get_xdata(
-        self, legend: Legend, xdescent, ydescent, width, height, fontsize: int,
+        self,
+        legend: Legend,
+        xdescent,
+        ydescent,
+        width,
+        height,
+        fontsize: int,
     ): ...
 
 class HandlerNpointsYoffsets(HandlerNpoints):
     def __init__(
-        self, numpoints: int = ..., yoffsets: Sequence[float] = ..., **kwargs,
+        self,
+        numpoints: int = ...,
+        yoffsets: Sequence[float] = ...,
+        **kwargs,
     ) -> None: ...
     def get_ydata(
-        self, legend: Legend, xdescent, ydescent, width, height, fontsize: int,
+        self,
+        legend: Legend,
+        xdescent,
+        ydescent,
+        width,
+        height,
+        fontsize: int,
     ): ...
 
 class HandlerLine2DCompound(HandlerNpoints):
@@ -147,7 +172,10 @@ class HandlerRegularPolyCollection(HandlerNpointsYoffsets):
         fontsize: int,
     ): ...
     def update_prop(
-        self, legend_handle: Artist, orig_handle: Artist, legend: Legend,
+        self,
+        legend_handle: Artist,
+        orig_handle: Artist,
+        legend: Legend,
     ): ...
     def create_collection(self, orig_handle, sizes, offsets, offset_transform): ...
     def create_artists(
@@ -164,12 +192,20 @@ class HandlerRegularPolyCollection(HandlerNpointsYoffsets):
 
 class HandlerPathCollection(HandlerRegularPolyCollection):
     def create_collection(
-        self, orig_handle: Artist, sizes, offsets, offset_transform,
+        self,
+        orig_handle: Artist,
+        sizes,
+        offsets,
+        offset_transform,
     ): ...
 
 class HandlerCircleCollection(HandlerRegularPolyCollection):
     def create_collection(
-        self, orig_handle: Artist, sizes, offsets, offset_transform,
+        self,
+        orig_handle: Artist,
+        sizes,
+        offsets,
+        offset_transform,
     ): ...
 
 class HandlerErrorbar(HandlerLine2D):
@@ -182,7 +218,13 @@ class HandlerErrorbar(HandlerLine2D):
         **kwargs,
     ) -> None: ...
     def get_err_size(
-        self, legend: Legend, xdescent, ydescent, width, height, fontsize: int,
+        self,
+        legend: Legend,
+        xdescent,
+        ydescent,
+        width,
+        height,
+        fontsize: int,
     ): ...
     def create_artists(
         self,
@@ -206,7 +248,13 @@ class HandlerStem(HandlerNpointsYoffsets):
         **kwargs,
     ) -> None: ...
     def get_ydata(
-        self, legend: Legend, xdescent, ydescent, width, height, fontsize: int,
+        self,
+        legend: Legend,
+        xdescent,
+        ydescent,
+        width,
+        height,
+        fontsize: int,
     ): ...
     def create_artists(
         self,

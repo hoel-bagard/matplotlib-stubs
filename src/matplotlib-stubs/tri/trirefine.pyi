@@ -10,7 +10,9 @@ class TriRefiner:
 class UniformTriRefiner(TriRefiner):
     def __init__(self, triangulation: Triangulation) -> None: ...
     def refine_triangulation(
-        self, return_tri_index: bool = False, subdiv: int = 3,
+        self,
+        return_tri_index: bool = False,
+        subdiv: int = 3,
     ) -> tuple[Triangulation, np.ndarray]: ...
     def refine_field(
         self,

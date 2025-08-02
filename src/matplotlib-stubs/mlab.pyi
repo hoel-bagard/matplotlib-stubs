@@ -72,7 +72,9 @@ def cohere(
 
 class GaussianKDE:
     def __init__(
-        self, dataset: ArrayLike, bw_method: str | Scalar | Callable = ...,
+        self,
+        dataset: ArrayLike,
+        bw_method: str | Scalar | Callable = ...,
     ) -> None: ...
     def scotts_factor(self): ...
     def silverman_factor(self): ...
