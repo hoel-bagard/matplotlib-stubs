@@ -1,10 +1,9 @@
 import tkinter as tk
 from collections.abc import Sequence
-from typing import Literal
+from typing import Any, Literal
 
 from matplotlib import backend_tools
 from matplotlib._api import classproperty
-from matplotlib._typing import *
 from matplotlib.backend_bases import (
     _Backend,
     FigureCanvasBase,
@@ -51,8 +50,8 @@ class FigureCanvasTk(FigureCanvasBase):
 class FigureManagerTk(FigureManagerBase):
     canvas: FigureCanvasBase
     num: int | str
-    toolbar: tk.Toolbar
-    window: tk.Window
+    toolbar: Any
+    window: Any
 
     def __init__(self, canvas, num, window) -> None: ...
     @classmethod
@@ -65,7 +64,7 @@ class FigureManagerTk(FigureManagerBase):
     def full_screen_toggle(self) -> None: ...
 
 class NavigationToolbar2Tk(NavigationToolbar2, tk.Frame):
-    window: tk.Window = ...
+    window: Any = ...
     def __init__(
         self,
         canvas: FigureCanvasBase,

@@ -14,7 +14,7 @@ from matplotlib.backend_bases import (
 from matplotlib.backend_tools import Cursors
 from matplotlib.transforms import Bbox
 
-from .qt_compat import QtCore, QtWidgets
+from .qt_compat import QtCore, QtWidgets  # pyright: ignore[reportAttributeAccessIssue]
 
 backend_version = ...
 SPECIAL_KEYS: dict = ...

@@ -269,7 +269,6 @@ __all__ = (
     "num2date",
     "num2epoch",
     "num2timedelta",
-    "relativedelta",
     "rrule",
     "rrulewrapper",
     "set_epoch",
