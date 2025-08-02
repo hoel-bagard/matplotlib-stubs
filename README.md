@@ -1,14 +1,16 @@
-[Official matplotlib stubs now exist](https://github.com/matplotlib/matplotlib/pull/24976) (in matplotlib>=3.8), so this repo is archived.
+# Matplotlib Stubs
 
-# Matplotlib stubs
+[Official matplotlib stubs now exist](https://github.com/matplotlib/matplotlib/pull/24976) (in matplotlib>=3.8), so this repo was archived from 2023/09/19 to 2025/08/02.\
+However I the official stubs are still incomplete, so this repo was unarchived.
 
 Unofficial python stubs for the [matplotlib package](https://pypi.org/project/matplotlib/).
 
-Taken from [Microsoft's Python Type Stubs repo](https://github.com/microsoft/python-type-stubs) and made pip installable.
+## Acknowledgements
 
+The code is this repo is taken from [Microsoft's Python Type Stubs repo](https://github.com/microsoft/python-type-stubs) and made pip installable.
 
 ## Installation
 
-```
+```bash
 pip install matplotlib-stubs
 ```
