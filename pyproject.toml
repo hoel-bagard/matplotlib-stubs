@@ -67,7 +67,7 @@ exclude = ["/.github", "/build", "/dist", "/docs"]
 packages = ["src/matplotlib-stubs"]
 
 [tool.ruff]
-line-length = 10000
+line-length = 10000 # Because some docstrings are included.
 
 [tool.ruff.lint]
 select = ["ALL"]
