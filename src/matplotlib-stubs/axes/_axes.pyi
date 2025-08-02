@@ -274,7 +274,7 @@ class Axes(_AxesBase):
         bottom: float = 0,
         label: str | None = None,
         use_line_collection: bool = True,
-        orientation: str = "verical",
+        orientation: str = "vertical",
     ) -> StemContainer: ...
     def pie(
         self,
