@@ -56,13 +56,12 @@ lint = [
   "mdformat-json>=1.0.0",
   "matplotlib-stubs>=0.2.0",
 ]
-tests = ["mypy>=1.14.1", "pytest>=8.3.5", "pytest-mypy-plugins>=3.1.2"]
 
 [tool.hatch.version]
 path = "src/matplotlib-stubs/__init__.pyi"
 
 [tool.hatch.build.targets.sdist]
-exclude = ["/.github", "/.pytest_cache", "/build", "/dist", "/docs"]
+exclude = ["/.github", "/build", "/dist", "/docs"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/matplotlib-stubs"]
@@ -115,10 +114,6 @@ reportFunctionMemberAccess = false
 reportPrivateUsage = false
 reportUntypedClassDecorator = false
 reportUntypedBaseClass = false
-
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "--mypy-only-local-stub"
 
 [tool.uv.sources]
 matplotlib-stubs = { workspace = true }
