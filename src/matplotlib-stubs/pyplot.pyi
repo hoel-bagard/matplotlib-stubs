@@ -1,7 +1,7 @@
 import datetime
+import os
 from collections.abc import Callable, Sequence
-from pathlib import Path
-from typing import Any, BinaryIO, ContextManager, Literal, overload, Unpack
+from typing import Any, ContextManager, IO, Literal, overload, Unpack
 
 import numpy as np
 import numpy.typing as npt
@@ -9,6 +9,8 @@ from matplotlib import rcParams as rcParams
 from matplotlib._typing import ArrayLike, Color, FileLike, Line2DProperty, PathCollectionProperties, PathLike, Scalar
 from matplotlib.colorizer import Colorizer
 from matplotlib.contour import QuadContourSet
+from matplotlib.layout_engine import LayoutEngine
+from matplotlib.typing import ColorType
 from typing_extensions import Self
 
 from .artist import Artist
@@ -78,14 +80,16 @@ class _xkcd:
 
 def figure(
     num: int | str | Figure | SubFigure | None = None,
-    figsize: Sequence[float] | None = None,
+    figsize: ArrayLike | tuple[float, float, Literal["in", "cm", "px"]] | None = None,
     dpi: float | None = None,
-    facecolor: Color | None = None,
-    edgecolor: Color | None = None,
+    *,
+    facecolor: ColorType | None = None,
+    edgecolor: ColorType | None = None,
     frameon: bool = True,
-    FigureClass=...,
+    FigureClass: type[Figure] = ...,
     clear: bool = False,
-    **kwargs,
+    layout: Literal["constrained", "compressed", "tight", "none"] | LayoutEngine | None = None,
+    **kwargs: Any,
 ) -> Figure: ...
 def gcf() -> Figure: ...
 def fignum_exists(num) -> bool: ...
@@ -94,11 +98,11 @@ def get_figlabels(): ...
 def get_current_fig_manager() -> FigureManagerBase: ...
 def connect(s: str, func: Callable): ...
 def disconnect(cid: int): ...
-def close(fig: None | int | str | Figure = ...) -> None: ...
+def close(fig: None | int | str | Figure | Literal["all"] = None) -> None: ...
 def clf() -> None: ...
 def draw() -> None: ...
 def savefig(
-    fname: str | Path | BinaryIO,
+    fname: str | os.PathLike | IO,
     *,
     transparent: bool | None = None,
     dpi: float | Literal["figure"] = "figure",
