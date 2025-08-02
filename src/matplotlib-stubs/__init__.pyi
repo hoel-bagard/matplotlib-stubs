@@ -1,11 +1,12 @@
-__version__ = "0.2.0"
+__version__ = "0.2.0"  # noqa: PYI052
 
 import contextlib
 from collections.abc import Generator
 from typing import Literal
 
+from matplotlib._typing import PathLike
+
 from . import colors as colors
-from ._typing import *
 
 class __getattr__:
     URL_REGEX = ...
@@ -52,5 +53,3 @@ def interactive(b) -> bool: ...
 def is_interactive() -> bool: ...
 
 default_test_modules: list[str] = ...
-
-def test(verbosity=..., coverage=..., **kwargs): ...

@@ -51,26 +51,32 @@ exclude = ["/.github", "/.pytest_cache", "/build", "/dist", "/docs"]
 packages = ["src/matplotlib-stubs"]
 
 [tool.ruff]
+line-length = 10000
+
+[tool.ruff.lint]
 select = ["ALL"]
 ignore = [
   "A002",   # Shadowing builtins, nothing we can do about that.
   "A003",
   "ANN",    # The stub is too incomplete to use these rules
   "B006",
+  "B019",   # functools.lru_cache check, not relevant here.
+  "CPY001", # Missing copyright notice rule, not relevant here
+  "COM812", # Conflict with formatter.
   "D",
   "FBT",
   "N",
   "PYI021",
+  "PYI051", # Some Literal are redundant with `str`, keep them for now.
 ]
-line-length = 10000
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "__init__.pyi" = ["F401"]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 order-by-type = false
 
-[tool.ruff.flake8-quotes]
+[tool.ruff.lint.flake8-quotes]
 docstring-quotes = "double"
 
 [tool.pyright]

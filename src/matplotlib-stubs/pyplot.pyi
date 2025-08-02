@@ -4,11 +4,10 @@ from typing import ContextManager, Literal, overload
 
 import numpy as np
 from matplotlib import rcParams as rcParams
-from matplotlib import style as style
+from matplotlib._typing import ArrayLike, Color, FileLike, PathLike, Scalar
 from matplotlib.contour import QuadContourSet
 from typing_extensions import Self
 
-from ._typing import *
 from .artist import Artist
 from .axes import Axes as Axes
 from .backend_bases import FigureManagerBase, MouseButton
@@ -785,7 +784,7 @@ def spy(
     precision: float | Literal["present"] = ...,
     marker=...,
     markersize=...,
-    aspect: Literal["equal", "auto", None] | float = ...,
+    aspect: Literal["equal", "auto"] | None | float = ...,
     origin: Literal["upper", "lower"] = ...,
     **kwargs,
 ) -> tuple[AxesImage, Line2D]: ...

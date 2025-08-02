@@ -1,9 +1,8 @@
 from collections.abc import Callable
 
 import numpy as np
+from matplotlib._typing import ArrayLike
 from matplotlib.path import Path
-
-from ._typing import *
 
 class NonIntersectingPathException(ValueError): ...
 

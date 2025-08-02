@@ -1,5 +1,5 @@
+from gi.repository import Gtk
 from matplotlib import backend_tools
-from matplotlib._typing import *
 from matplotlib.backend_bases import (
     _Backend,
     FigureCanvasBase,

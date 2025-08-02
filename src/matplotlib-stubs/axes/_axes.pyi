@@ -3,7 +3,7 @@ from collections.abc import Callable, Sequence
 from typing import Literal, overload
 
 import numpy as np
-from matplotlib._typing import *
+from matplotlib._typing import ArrayLike, Color, Scalar
 from matplotlib.artist import Artist
 from matplotlib.axes._secondary_axes import SecondaryAxis
 from matplotlib.axis import XAxis, YAxis
@@ -670,7 +670,7 @@ class Axes(_AxesBase):
         precision: float | Literal["present"] = 0,
         marker=...,
         markersize=...,
-        aspect: Literal["equal", "auto", None] | float = "equal",
+        aspect: Literal["equal", "auto"] | None | float = "equal",
         origin: Literal["upper", "lower"] = ...,
         **kwargs,
     ) -> AxesImage | Line2D: ...

@@ -1,7 +1,8 @@
 from typing import Literal
 
+from matplotlib._typing import ArrayLike
+
 from ._enums import CapStyle, JoinStyle
-from ._typing import *
 from .path import Path
 from .transforms import Affine2D, Transform
 

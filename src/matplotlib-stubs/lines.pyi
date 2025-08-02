@@ -2,10 +2,10 @@ from collections.abc import Callable, Sequence
 from typing import Any, Literal
 
 import numpy as np
+from matplotlib._typing import ArrayLike, Color
 from matplotlib.markers import MarkerStyle
 
 from ._enums import CapStyle, JoinStyle
-from ._typing import *
 from .artist import allow_rasterization, Artist
 from .backend_bases import Event, MouseEvent, RendererBase
 from .backends.backend_agg import RendererAgg

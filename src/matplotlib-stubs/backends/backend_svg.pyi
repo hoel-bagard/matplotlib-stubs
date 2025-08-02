@@ -2,7 +2,7 @@ from encodings.utf_8 import StreamWriter
 from io import BytesIO, TextIOWrapper
 from typing import Any
 
-from matplotlib._typing import *
+from matplotlib._typing import FileLike, PathLike, Scalar
 from matplotlib.backend_bases import (
     _Backend,
     FigureCanvasBase,

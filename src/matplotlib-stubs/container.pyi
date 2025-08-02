@@ -1,9 +1,9 @@
 from typing import Literal
 
+from matplotlib._typing import ArrayLike
 from matplotlib.artist import Artist
 from typing_extensions import Self
 
-from ._typing import *
 from .collections import LineCollection
 from .lines import Line2D
 from .patches import Rectangle

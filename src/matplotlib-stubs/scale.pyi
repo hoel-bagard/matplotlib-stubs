@@ -1,7 +1,8 @@
 from collections.abc import Callable, Sequence
 from typing import Literal
 
-from ._typing import *
+from matplotlib._typing import ArrayLike
+
 from .axis import Axis
 from .transforms import Transform
 

@@ -1,6 +1,7 @@
 from collections.abc import Sequence
 
-from ._typing import *
+from matplotlib._typing import ArrayLike
+
 from .backend_bases import RendererBase
 from .figure import Figure, FigureBase, SubplotParams
 

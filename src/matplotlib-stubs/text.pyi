@@ -3,9 +3,9 @@ from collections.abc import Callable, Sequence
 from pathlib import PosixPath
 from typing import Any, Literal
 
+from matplotlib._typing import Color
 from matplotlib.path import Path
 
-from ._typing import *
 from .artist import allow_rasterization, Artist
 from .backend_bases import MouseEvent, RendererBase
 from .figure import Figure
@@ -15,7 +15,7 @@ from .patches import FancyBboxPatch
 from .transforms import Bbox, Transform
 
 def get_rotation(
-    rotation: float | Literal[None, "horizontal", "vertical"],
+    rotation: float | Literal["horizontal", "vertical"] | None,
 ) -> float: ...
 
 class Text(Artist):

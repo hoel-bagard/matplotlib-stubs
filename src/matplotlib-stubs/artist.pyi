@@ -1,7 +1,8 @@
 from collections.abc import Callable
 from typing import Any, NamedTuple
 
-from ._typing import *
+from matplotlib._typing import FileLike
+
 from .axes import Axes
 from .backend_bases import MouseEvent, RendererBase
 from .figure import Figure

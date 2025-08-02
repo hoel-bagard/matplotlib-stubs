@@ -2,9 +2,9 @@ from collections.abc import Sequence
 from typing import Literal
 
 import numpy as np
+from matplotlib._typing import ArrayLike, FileLike, PathLike
 from PIL.Image import Image
 
-from ._typing import *
 from .artist import allow_rasterization, Artist
 from .axes import Axes
 from .backend_bases import MouseEvent, RendererBase

@@ -5,7 +5,7 @@ from typing import Any
 
 import numpy as np
 from matplotlib._enums import CapStyle, JoinStyle
-from matplotlib._typing import *
+from matplotlib._typing import FileLike, PathLike, Scalar
 from matplotlib.backend_bases import (
     _Backend,
     FigureCanvasBase,

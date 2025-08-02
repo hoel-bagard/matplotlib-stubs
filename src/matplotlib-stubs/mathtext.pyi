@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 
-from ._typing import *
+from matplotlib._typing import FileLike, PathLike
+
 from .font_manager import FontProperties
 
 get_unicode_index = ...
