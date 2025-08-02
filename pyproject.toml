@@ -29,7 +29,6 @@ requires = ["hatchling>=1.10.0"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
-build = ["hatch>=1.14.1"]
 dev = ["ipython>=8.12.3", "pre-commit>=3.5.0"]
 lint = [
   # Typing
