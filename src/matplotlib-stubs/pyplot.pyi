@@ -1,11 +1,12 @@
 import datetime
 from collections.abc import Callable, Sequence
 from pathlib import Path
-from typing import Any, BinaryIO, ContextManager, Literal, overload
+from typing import Any, BinaryIO, ContextManager, Literal, overload, Unpack
 
 import numpy as np
+import numpy.typing as npt
 from matplotlib import rcParams as rcParams
-from matplotlib._typing import ArrayLike, Color, FileLike, PathLike, Scalar
+from matplotlib._typing import ArrayLike, Color, FileLike, Line2DProperty, PathLike, Scalar
 from matplotlib.contour import QuadContourSet
 from typing_extensions import Self
 
@@ -719,7 +720,15 @@ def pie(
     normalize: bool = ...,
     data=...,
 ): ...
-def plot(*args, scalex=..., scaley=..., data=..., **kwargs) -> list: ...
+def plot(
+    x: npt.ArrayLike | float,
+    y: npt.ArrayLike | float,
+    fmt: str | None = None,
+    *,
+    scalex: bool = True,
+    scaley: bool = True,
+    **kwargs: Unpack[Line2DProperty],
+) -> list[Line2D]: ...
 def plot_date(
     x: ArrayLike,
     y: ArrayLike,
