@@ -1,6 +1,7 @@
 import datetime
 from collections.abc import Callable, Sequence
-from typing import ContextManager, Literal, overload
+from pathlib import Path
+from typing import Any, BinaryIO, ContextManager, Literal, overload
 
 import numpy as np
 from matplotlib import rcParams as rcParams
@@ -94,7 +95,20 @@ def disconnect(cid: int): ...
 def close(fig: None | int | str | Figure = ...): ...
 def clf() -> None: ...
 def draw() -> None: ...
-def savefig(*args, **kwargs) -> None: ...
+def savefig(
+    fname: str | Path | BinaryIO,
+    *,
+    transparent: bool | None = None,
+    dpi: float | Literal["figure"] = "figure",
+    format: str | None = None,
+    metadata: dict[str, str] | None = None,
+    bbox_inches: str | Bbox | None = None,
+    pad_inches: float | Literal["layout"] = 0.1,
+    facecolor: Color | Literal["auto"] = "auto",
+    edgecolor: Color | Literal["auto"] = "auto",
+    backend: str | None = None,
+    **kwargs: Any,
+) -> None: ...
 def figlegend(*args, **kwargs) -> Legend: ...
 def axes(arg: None | tuple = ..., **kwargs) -> Axes: ...
 def delaxes(ax: Axes = ...) -> None: ...
