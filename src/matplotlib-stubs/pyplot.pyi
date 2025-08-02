@@ -964,8 +964,8 @@ def ylabel(
     fontdict: dict[str, Any] | None = None,
     labelpad: float | None = None,
     *,
-    loc: Literal["left", "center", "right"] | None = None,
-    **kwargs,
+    loc: Literal["bottom", "center", "top"] | None = None,
+    **kwargs: Unpack[TextProperties],
 ): ...
 def xscale(
     value: Literal["linear", "log", "symlog", "logit"] | ScaleBase,
