@@ -6,7 +6,8 @@ from typing import Any, BinaryIO, ContextManager, Literal, overload, Unpack
 import numpy as np
 import numpy.typing as npt
 from matplotlib import rcParams as rcParams
-from matplotlib._typing import ArrayLike, Color, FileLike, Line2DProperty, PathLike, Scalar
+from matplotlib._typing import ArrayLike, Color, FileLike, Line2DProperty, PathCollectionProperties, PathLike, Scalar
+from matplotlib.colorizer import Colorizer
 from matplotlib.contour import QuadContourSet
 from typing_extensions import Self
 
@@ -764,17 +765,12 @@ def scatter(
     s: float | ArrayLike = ...,
     c: ArrayLike | list[Color] | Color = ...,
     marker: MarkerStyle = ...,
-    cmap: str | Colormap = ...,
-    norm: Normalize = ...,
     vmin: float = ...,
     vmax: float = ...,
-    alpha: float = ...,
-    linewidths: float | ArrayLike = ...,
-    *,
-    edgecolors: Color = ...,
+    colorizer: Colorizer | None = None,
     plotnonfinite: bool = ...,
-    data=...,
-    **kwargs,
+    data: Sequence | dict = ...,
+    **kwargs: Unpack[PathCollectionProperties],
 ) -> PathCollection: ...
 def semilogx(*args, **kwargs) -> list: ...
 def semilogy(*args, **kwargs) -> list: ...
