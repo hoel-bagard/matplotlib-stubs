@@ -6,6 +6,7 @@ import numpy as np
 from matplotlib import rcParams as rcParams
 from matplotlib import style as style
 from matplotlib.contour import QuadContourSet
+from typing_extensions import Self
 
 from ._typing import *
 from .artist import Artist
@@ -70,7 +71,7 @@ def xkcd(scale: float = ..., length: float = ..., randomness: float = ...) -> _x
 
 class _xkcd:
     def __init__(self, scale: float, length: float, randomness: float) -> None: ...
-    def __enter__(self) -> _xkcd: ...
+    def __enter__(self) -> Self: ...
     def __exit__(self, *args) -> None: ...
 
 def figure(

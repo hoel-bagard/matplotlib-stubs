@@ -1,6 +1,7 @@
 from typing import Literal
 
 from matplotlib.artist import Artist
+from typing_extensions import Self
 
 from ._typing import *
 from .collections import LineCollection
@@ -8,7 +9,7 @@ from .lines import Line2D
 from .patches import Rectangle
 
 class Container(tuple):
-    def __new__(cls: type[Container], *args, **kwargs) -> Container: ...
+    def __new__(cls, *args, **kwargs) -> Self: ...
     def __init__(self, kl: list[Rectangle], label: str = ...) -> None: ...
     def remove(self) -> None: ...
     def get_children(self) -> list[Rectangle]: ...

@@ -6,8 +6,8 @@ from typing import Any, Union
 
 from typing_extensions import TypeAlias
 
-_Style: TypeAlias = Union[str, Path, Mapping[str, Any]]
-_StyleOrList: TypeAlias = Union[_Style, list[_Style]]
+_Style: TypeAlias = str | Path | Mapping[str, Any]
+_StyleOrList: TypeAlias = _Style | list[_Style]
 
 def context(style: _StyleOrList, after_reset: bool = ...) -> None: ...
 def reload_library() -> None: ...
