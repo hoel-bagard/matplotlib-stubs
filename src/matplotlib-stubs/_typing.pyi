@@ -1,25 +1,26 @@
 import decimal
 import io
 
-import numpy.typing
 import numpy as np
+import numpy.typing
 import pandas as pd
+from typing_extensions import TypeAlias
 
 Decimal = decimal.Decimal
-PythonScalar = str | int | float | bool
+PythonScalar: TypeAlias = str | int | float | bool
 
 ArrayLike = numpy.typing.ArrayLike
 FileLike = io.IOBase
 PathLike = str
 
-PandasScalar = pd.Period | pd.Timestamp | pd.Timedelta | pd.Interval
-Scalar = PythonScalar | PandasScalar
+PandasScalar: TypeAlias = pd.Period | pd.Timestamp | pd.Timedelta | pd.Interval
+Scalar: TypeAlias = PythonScalar | PandasScalar
 
-RGBColor = tuple[float, float, float]
-RGBAColor = tuple[np.float_, np.float_, np.float_, np.float_]
-RGBAColorInt = tuple[np.uint8, np.uint8, np.uint8, np.uint8]
+RGBColor: TypeAlias = tuple[float, float, float]
+RGBAColor: TypeAlias = tuple[numpy.float64, numpy.float64, numpy.float64, numpy.float64]
+RGBAColorInt: TypeAlias = tuple[np.uint8, np.uint8, np.uint8, np.uint8]
 
-Color = RGBColor | RGBAColor | RGBAColorInt | str
+Color: TypeAlias = RGBColor | RGBAColor | RGBAColorInt | str
 
 __all__ = [
     "ArrayLike",

@@ -17,7 +17,9 @@ class AbstractPathEffect:
 
 class PathEffectRenderer(RendererBase):
     def __init__(
-        self, path_effects: Iterable[AbstractPathEffect], renderer: RendererBase,
+        self,
+        path_effects: Iterable[AbstractPathEffect],
+        renderer: RendererBase,
     ) -> None: ...
     def copy_with_path_effect(self, path_effects): ...
     def draw_path(self, gc: GraphicsContextBase, tpath, affine, rgbFace=...): ...
@@ -31,10 +33,16 @@ class PathEffectRenderer(RendererBase):
         **kwargs,
     ): ...
     def draw_path_collection(
-        self, gc: GraphicsContextBase, master_transform, paths, *args, **kwargs,
+        self,
+        gc: GraphicsContextBase,
+        master_transform,
+        paths,
+        *args,
+        **kwargs,
     ): ...
     def __getattribute__(
-        self, name: str,
+        self,
+        name: str,
     ) -> Callable | list[Stroke | Normal] | RendererBase: ...
 
 class Normal(AbstractPathEffect): ...

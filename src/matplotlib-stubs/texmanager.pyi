@@ -3,7 +3,6 @@ import functools
 from .backend_bases import RendererBase
 
 class TexManager:
-
     texcache = ...
 
     grey_arrayd = ...
@@ -31,5 +30,8 @@ class TexManager:
     def get_rgba(cls, tex: str, fontsize: float = ..., dpi: float = ..., rgb=...): ...
     @classmethod
     def get_text_width_height_descent(
-        cls, tex: str, fontsize: float, renderer: RendererBase = ...,
+        cls,
+        tex: str,
+        fontsize: float,
+        renderer: RendererBase = ...,
     ): ...

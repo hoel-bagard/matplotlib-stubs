@@ -7,7 +7,6 @@ from ._typing import *
 from .transforms import Affine2D, Bbox, Transform
 
 class Path:
-
     code_type = np.uint8
     STOP = code_type(0)
     MOVETO = code_type(1)
@@ -49,7 +48,6 @@ class Path:
     def make_compound_path_from_polys(cls, XY): ...
     @classmethod
     def make_compound_path(cls, *args): ...
-    def __repr__(self) -> str: ...
     def __len__(self) -> int: ...
     def iter_segments(
         self,
@@ -83,7 +81,10 @@ class Path:
         radius: float = ...,
     ) -> bool: ...
     def contains_points(
-        self, points: ArrayLike, transform: Transform = ..., radius: float = ...,
+        self,
+        points: ArrayLike,
+        transform: Transform = ...,
+        radius: float = ...,
     ) -> list[bool]: ...
     def contains_path(self, path: Path, transform: Transform = ...) -> bool: ...
     def get_extents(self, transform: Transform = ..., **kwargs) -> Bbox: ...
@@ -118,7 +119,11 @@ class Path:
     def unit_circle_righthalf(cls) -> Path: ...
     @classmethod
     def arc(
-        cls, theta1: float, theta2: float, n: int = ..., is_wedge: bool = ...,
+        cls,
+        theta1: float,
+        theta2: float,
+        n: int = ...,
+        is_wedge: bool = ...,
     ) -> Path: ...
     @classmethod
     def wedge(cls, theta1: float, theta2: float, n: int = ...) -> Path: ...

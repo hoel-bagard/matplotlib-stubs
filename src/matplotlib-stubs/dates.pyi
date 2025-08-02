@@ -54,13 +54,16 @@ def drange(
 
 class DateFormatter(Formatter):
     def __init__(
-        self, fmt: str, tz: str | datetime.tzinfo = ..., *, usetex: bool = ...,
+        self,
+        fmt: str,
+        tz: str | datetime.tzinfo = ...,
+        *,
+        usetex: bool = ...,
     ) -> None: ...
     def __call__(self, x, pos=...): ...
     def set_tzinfo(self, tz: str | datetime.tzinfo): ...
 
 class ConciseDateFormatter(Formatter):
-
     formats: list[str] = ...
     offset_formats: list[str] = ...
     zero_formats: list[str] = ...
@@ -77,7 +80,7 @@ class ConciseDateFormatter(Formatter):
         usetex: bool = ...,
     ) -> None: ...
     def __call__(self, x, pos=...): ...
-    def format_ticks(self, values)-> None: ...
+    def format_ticks(self, values) -> None: ...
     def get_offset(self): ...
     def format_data_short(self, value): ...
 
@@ -94,17 +97,19 @@ class AutoDateFormatter(Formatter):
 
 class rrulewrapper:
     def __init__(
-        self, freq: int, tzinfo: datetime.tzinfo | None = ..., **kwargs,
+        self,
+        freq: int,
+        tzinfo: datetime.tzinfo | None = ...,
+        **kwargs,
     ) -> None: ...
-    def set(self, **kwargs)-> None: ...
+    def set(self, **kwargs) -> None: ...
     def __getattr__(self, name): ...
-    def __setstate__(self, state)-> None: ...
+    def __setstate__(self, state) -> None: ...
 
 class DateLocator(Locator):
-
     hms0d = ...
     def __init__(self, tz: str | datetime.tzinfo = ...) -> None: ...
-    def set_tzinfo(self, tz: str | datetime.tzinfo)-> None: ...
+    def set_tzinfo(self, tz: str | datetime.tzinfo) -> None: ...
     def datalim_to_dt(self): ...
     def viewlim_to_dt(self): ...
     def nonsingular(self, vmin, vmax): ...
@@ -131,44 +136,67 @@ class AutoDateLocator(DateLocator):
 
 class YearLocator(RRuleLocator):
     def __init__(
-        self, base=..., month=..., day=..., tz: str | datetime.tzinfo = ...,
+        self,
+        base=...,
+        month=...,
+        day=...,
+        tz: str | datetime.tzinfo = ...,
     ) -> None: ...
 
 class MonthLocator(RRuleLocator):
     def __init__(
-        self, bymonth=..., bymonthday=..., interval=..., tz: str | datetime.tzinfo = ...,
+        self,
+        bymonth=...,
+        bymonthday=...,
+        interval=...,
+        tz: str | datetime.tzinfo = ...,
     ) -> None: ...
 
 class WeekdayLocator(RRuleLocator):
     def __init__(
-        self, byweekday=..., interval=..., tz: str | datetime.tzinfo = ...,
+        self,
+        byweekday=...,
+        interval=...,
+        tz: str | datetime.tzinfo = ...,
     ) -> None: ...
 
 class DayLocator(RRuleLocator):
     def __init__(
-        self, bymonthday=..., interval=..., tz: str | datetime.tzinfo = ...,
+        self,
+        bymonthday=...,
+        interval=...,
+        tz: str | datetime.tzinfo = ...,
     ) -> None: ...
 
 class HourLocator(RRuleLocator):
     def __init__(
-        self, byhour=..., interval=..., tz: str | datetime.tzinfo = ...,
+        self,
+        byhour=...,
+        interval=...,
+        tz: str | datetime.tzinfo = ...,
     ) -> None: ...
 
 class MinuteLocator(RRuleLocator):
     def __init__(
-        self, byminute=..., interval=..., tz: str | datetime.tzinfo = ...,
+        self,
+        byminute=...,
+        interval=...,
+        tz: str | datetime.tzinfo = ...,
     ) -> None: ...
 
 class SecondLocator(RRuleLocator):
     def __init__(
-        self, bysecond=..., interval=..., tz: str | datetime.tzinfo = ...,
+        self,
+        bysecond=...,
+        interval=...,
+        tz: str | datetime.tzinfo = ...,
     ) -> None: ...
 
 class MicrosecondLocator(DateLocator):
     def __init__(self, interval=..., tz: str | datetime.tzinfo = ...) -> None: ...
-    def set_axis(self, axis)-> None: ...
-    def set_view_interval(self, vmin: float, vmax: float)-> None: ...
-    def set_data_interval(self, vmin: float, vmax: float)-> None: ...
+    def set_axis(self, axis) -> None: ...
+    def set_view_interval(self, vmin: float, vmax: float) -> None: ...
+    def set_data_interval(self, vmin: float, vmax: float) -> None: ...
     def __call__(self): ...
     def tick_values(self, vmin, vmax): ...
 
@@ -202,47 +230,47 @@ class _SwitchableDateConverter:
     def convert(self, *args, **kwargs): ...
 
 __all__ = (
-    "datestr2num",
-    "date2num",
-    "num2date",
-    "num2timedelta",
-    "drange",
-    "epoch2num",
-    "num2epoch",
-    "set_epoch",
-    "get_epoch",
-    "DateFormatter",
-    "ConciseDateFormatter",
-    "AutoDateFormatter",
-    "DateLocator",
-    "RRuleLocator",
-    "AutoDateLocator",
-    "YearLocator",
-    "MonthLocator",
-    "WeekdayLocator",
-    "DayLocator",
-    "HourLocator",
-    "MinuteLocator",
-    "SecondLocator",
-    "MicrosecondLocator",
-    "rrule",
+    "DAILY",
+    "FR",
+    "HOURLY",
+    "MICROSECONDLY",
+    "MINUTELY",
     "MO",
+    "MONTHLY",
+    "SA",
+    "SECONDLY",
+    "SU",
+    "TH",
     "TU",
     "WE",
-    "TH",
-    "FR",
-    "SA",
-    "SU",
-    "YEARLY",
-    "MONTHLY",
     "WEEKLY",
-    "DAILY",
-    "HOURLY",
-    "MINUTELY",
-    "SECONDLY",
-    "MICROSECONDLY",
-    "relativedelta",
-    "DateConverter",
+    "YEARLY",
+    "AutoDateFormatter",
+    "AutoDateLocator",
     "ConciseDateConverter",
+    "ConciseDateFormatter",
+    "DateConverter",
+    "DateFormatter",
+    "DateLocator",
+    "DayLocator",
+    "HourLocator",
+    "MicrosecondLocator",
+    "MinuteLocator",
+    "MonthLocator",
+    "RRuleLocator",
+    "SecondLocator",
+    "WeekdayLocator",
+    "YearLocator",
+    "date2num",
+    "datestr2num",
+    "drange",
+    "epoch2num",
+    "get_epoch",
+    "num2date",
+    "num2epoch",
+    "num2timedelta",
+    "relativedelta",
+    "rrule",
     "rrulewrapper",
+    "set_epoch",
 )

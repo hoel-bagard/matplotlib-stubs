@@ -22,17 +22,24 @@ class OffsetBox(Artist):
     def contains(self, mouseevent: MouseEvent) -> tuple[bool, dict]: ...
     def set_offset(self, xy: Callable): ...
     def get_offset(
-        self, width, height, xdescent, ydescent, renderer: RendererBase,
+        self,
+        width,
+        height,
+        xdescent,
+        ydescent,
+        renderer: RendererBase,
     ) -> tuple[float, float]: ...
     def set_width(self, width: float): ...
     def set_height(self, height: float): ...
     def get_visible_children(self) -> list[Artist]: ...
     def get_children(self) -> list[Artist]: ...
     def get_extent_offsets(
-        self, renderer: RendererBase,
+        self,
+        renderer: RendererBase,
     ) -> tuple[float, float, float, float, list[tuple[float, float]]]: ...
     def get_extent(
-        self, renderer: RendererBase,
+        self,
+        renderer: RendererBase,
     ) -> tuple[float, float, float, float]: ...
     def get_window_extent(self, renderer: RendererBase = ...): ...
     def draw(self, renderer: RendererBase): ...
@@ -45,7 +52,12 @@ class PackerBase(OffsetBox):
         width: float = ...,
         height: float = ...,
         align: Literal[
-            "top", "bottom", "left", "right", "center", "baseline",
+            "top",
+            "bottom",
+            "left",
+            "right",
+            "center",
+            "baseline",
         ] = "baseline",
         mode: Literal["fixed", "expand", "equal"] = "fixed",
         children: list[Artist] = ...,
@@ -94,7 +106,10 @@ class DrawingArea(OffsetBox):
 
 class TextArea(OffsetBox):
     def __init__(
-        self, s: str, textprops: dict = ..., multilinebaseline: bool = False,
+        self,
+        s: str,
+        textprops: dict = ...,
+        multilinebaseline: bool = False,
     ) -> None: ...
     def set_text(self, s: str): ...
     def get_text(self) -> str: ...
@@ -119,7 +134,6 @@ class AuxTransformBox(OffsetBox):
     def draw(self, renderer: RendererBase): ...
 
 class AnchoredOffsetbox(OffsetBox):
-
     zorder = ...
     codes = ...
 
@@ -146,7 +160,6 @@ class AnchoredOffsetbox(OffsetBox):
     def draw(self, renderer: RendererBase): ...
 
 class AnchoredText(AnchoredOffsetbox):
-
     patch: FancyBboxPatch
 
     def __init__(
@@ -185,9 +198,7 @@ class OffsetImage(OffsetBox):
     def draw(self, renderer: RendererBase): ...
 
 class AnnotationBbox(Artist, _AnnotationBase):
-
     zorder = ...
-    def __str__(self) -> str: ...
     def __init__(
         self,
         offsetbox,
