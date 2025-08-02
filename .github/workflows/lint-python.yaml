@@ -71,4 +71,4 @@ jobs:
           python-version-file: "pyproject.toml"
 
       - name: Run Pyright
-        run: uv run --all-groups pyright
+        run: PYGOBJECT_STUB_CONFIG=Gtk3,Gdk3,Soup2 uv run --all-groups pyright
