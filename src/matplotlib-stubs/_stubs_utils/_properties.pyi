@@ -146,14 +146,8 @@ class Line2DProperty(TypedDict, total=False):
     gid: str
     in_layout: bool
     label: object
-    linestyle: (
-        Literal["-", "solid", "--", "dashed", "-.", "dashdot", ":", "dotted", "", "none", "None", " "]
-        | tuple[int, Sequence[int]]
-    )
-    ls: (
-        Literal["-", "solid", "--", "dashed", "-.", "dashdot", ":", "dotted", "", "none", "None", " "]
-        | tuple[int, Sequence[int]]
-    )
+    linestyle: Literal["-", "solid", "--", "dashed", "-.", "dashdot", ":", "dotted", "", "none", "None", " "] | tuple[int, Sequence[int]]
+    ls: Literal["-", "solid", "--", "dashed", "-.", "dashdot", ":", "dotted", "", "none", "None", " "] | tuple[int, Sequence[int]]
     linewidth: float
     lw: float
     marker: str | Path | MarkerStyle
