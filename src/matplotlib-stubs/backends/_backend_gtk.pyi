@@ -19,8 +19,8 @@ class TimerGTK(TimerBase):
 class _FigureManagerGTK(FigureManagerBase):
     canvas: FigureCanvasBase
     num: int | str
-    toolbar: Gtk.Toolbar | Gtk.Box
-    vbox: Gtk.VBox
+    toolbar: Gtk.Toolbar | Gtk.Box  # pyright: ignore[reportAttributeAccessIssue]
+    vbox: Gtk.VBox  # pyright: ignore[reportAttributeAccessIssue]
     window: Gtk.Window
 
     def __init__(self, canvas: FigureCanvasBase, num: int | str) -> None: ...
