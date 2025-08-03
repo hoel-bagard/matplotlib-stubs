@@ -1255,7 +1255,6 @@ dev = [
 lint = [
     { name = "codespell" },
     { name = "markdown-format-ruff" },
-    { name = "matplotlib-stubs" },
     { name = "mdformat", version = "0.7.22", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.9'" },
     { name = "mdformat-footnote" },
     { name = "mdformat-frontmatter", marker = "python_full_version >= '3.9'" },
@@ -1291,7 +1290,6 @@ dev = [
 lint = [
     { name = "codespell", specifier = ">=2.3.0" },
     { name = "markdown-format-ruff", specifier = ">=1.0.0" },
-    { name = "matplotlib-stubs", editable = "." },
     { name = "mdformat", marker = "python_full_version >= '3.9'", specifier = ">=0.7.22" },
     { name = "mdformat-footnote", specifier = ">=0.1.1" },
     { name = "mdformat-frontmatter", marker = "python_full_version >= '3.9'", specifier = ">=2.0.8" },
