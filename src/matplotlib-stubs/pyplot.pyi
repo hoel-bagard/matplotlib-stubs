@@ -956,7 +956,7 @@ def xlabel(
     *,
     loc: Literal["left", "center", "right"] | None = None,
     **kwargs: Unpack[TextProperties],
-): ...
+) -> Text: ...
 def ylabel(
     ylabel: str,
     fontdict: dict[str, Any] | None = None,
@@ -964,7 +964,7 @@ def ylabel(
     *,
     loc: Literal["bottom", "center", "top"] | None = None,
     **kwargs: Unpack[TextProperties],
-): ...
+) -> Text: ...
 def xscale(
     value: Literal["linear", "log", "symlog", "logit"] | ScaleBase,
     **kwargs,
