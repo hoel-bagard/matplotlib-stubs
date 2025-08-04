@@ -108,7 +108,7 @@ def close(fig: None | int | str | Figure | Literal["all"] = None) -> None: ...
 def clf() -> None: ...
 def draw() -> None: ...
 def savefig(
-    fname: str | os.PathLike | IO,
+    fname: str | os.PathLike[str] | IO[bytes],
     *,
     transparent: bool | None = None,
     dpi: float | Literal["figure"] = "figure",
@@ -732,10 +732,8 @@ def pie(
     data=...,
 ): ...
 def plot(
-    x: npt.ArrayLike | float,
-    y: npt.ArrayLike | float,
+    *args: float | npt.ArrayLike | str,
     fmt: str | None = None,
-    *,
     scalex: bool = True,
     scaley: bool = True,
     **kwargs: Unpack[Line2DProperty],
@@ -779,7 +777,7 @@ def scatter(
     vmax: float = ...,
     colorizer: Colorizer | None = None,
     plotnonfinite: bool = ...,
-    data: Sequence | dict = ...,
+    data: dict[str, Any] = ...,
     **kwargs: Unpack[PathCollectionProperties],
 ) -> PathCollection: ...
 def semilogx(*args, **kwargs) -> list: ...
