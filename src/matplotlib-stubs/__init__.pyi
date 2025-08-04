@@ -1,4 +1,4 @@
-__version__ = "0.3.0"  # noqa: PYI052
+__version__ = "0.3.1"  # noqa: PYI052
 
 import contextlib
 from collections.abc import Generator
