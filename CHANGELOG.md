@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.2] - 2025-08-07
+
+- Add `matplotlib.cm`'s colormaps
+
 ## [0.3.1] - 2025-08-04
 
 - Add return type to `plt.ylabel` and `plt.xlabel`
