@@ -299,6 +299,65 @@ class TitleTextProperties(TypedDict, total=False):
     x: float
     zorder: float
 
-class TextProperties(TypedDict, total=False):
+class TextPropertiesBase(TypedDict, total=False):
+    agg_filter: Callable[[npt.NDArray, float], tuple[npt.NDArray, int, int]]
+    alpha: float | None
+    animated: bool
+    antialiased: bool
+    backgroundcolor: ColorType
+    bbox: FancyBboxPatchProperties
+    clip_box: BboxBase | None
+    clip_on: bool
+    clip_path: Path | tuple[Path, Transform] | None
+    color: ColorType
+    c: ColorType
+    figure: Figure | SubFigure
+    fontfamily: str | Literal["serif", "sans-serif", "cursive", "fantasy", "monospace"]
+    family: str | Literal["serif", "sans-serif", "cursive", "fantasy", "monospace"]
+    fontname: str | Literal["serif", "sans-serif", "cursive", "fantasy", "monospace"]
+    fontproperties: dict[str, Any] | str | Path
+    font: dict[str, Any] | str | Path
+    font_properties: dict[str, Any] | str | Path
+    fontsize: float | Literal["xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"]
+    size: float | Literal["xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"]
+    fontstretch: int | Literal["ultra-condensed", "extra-condensed", "condensed", "semi-condensed", "normal", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded"]
+    stretch: int | Literal["ultra-condensed", "extra-condensed", "condensed", "semi-condensed", "normal", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded"]
+    fontstyle: Literal["normal", "italic", "oblique"]
+    style: Literal["normal", "italic", "oblique"]
+    fontvariant: Literal["normal", "small-caps"]
+    variant: Literal["normal", "small-caps"]
+    fontweight: int | Literal["ultralight", "light", "normal", "regular", "book", "medium", "roman", "semibold", "demibold", "demi", "bold", "heavy", "extra bold", "black"]
+    weight: int | Literal["ultralight", "light", "normal", "regular", "book", "medium", "roman", "semibold", "demibold", "demi", "bold", "heavy", "extra bold", "black"]
+    gid: str
+    horizontalalignment: Literal["left", "center", "right"]
+    ha: Literal["left", "center", "right"]
+    in_layout: bool
+    label: object
+    linespacing: float
+    math_fontfamily: str
+    mouseover: bool
+    multialignment: Literal["left", "right", "center"]
+    ma: Literal["left", "right", "center"]
+    parse_math: bool
+    path_effects: list[AbstractPathEffect]
+    picker: bool | float | None | Callable
+    position: tuple[float, float]
+    rasterized: bool
+    rotation: float | Literal["vertical", "horizontal"]
+    rotation_mode: None | Literal["default", "anchor"]
+    sketch_params: SketchParams
+    snap: bool | None
+    text: object
+    transform: Transform
+    transform_rotates_text: bool
+    url: str
+    usetex: bool
+    verticalalignment: Literal["baseline", "bottom", "center", "center_baseline", "top"]
+    va: Literal["baseline", "bottom", "center", "center_baseline", "top"]
+    visible: bool
+    wrap: bool
+    zorder: float
+
+class TextPropertiesWithPositions(TextPropertiesBase, total=False):
+    x: float
     y: float
-    label: str

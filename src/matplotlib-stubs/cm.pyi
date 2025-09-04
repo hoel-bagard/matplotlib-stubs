@@ -171,18 +171,6 @@ class _CmapsListed(TypedDict):
 
 cmaps_listed: _CmapsListed
 
-class _Colors(TypedDict):
-    cool: LinearSegmentedColormap
-    cool_r: LinearSegmentedColormap
-    coolwarm: LinearSegmentedColormap
-    coolwarm_r: LinearSegmentedColormap
-    copper: LinearSegmentedColormap
-    copper_r: LinearSegmentedColormap
-    cubehelix: LinearSegmentedColormap
-    cubehelix_r: LinearSegmentedColormap
-
-colors: int
-
 class _Datad(TypedDict):
     Blues: tuple
     BrBG: tuple
