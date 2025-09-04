@@ -9,7 +9,8 @@ from matplotlib import rcParams as rcParams
 from matplotlib._stubs_utils._properties import (
     Line2DProperty,
     PathCollectionProperties,
-    TextProperties,
+    TextPropertiesBase,
+    TextPropertiesWithPositions,
     TitleTextProperties,
 )
 from matplotlib._stubs_utils._typing import ArrayLike, Color, FileLike, PathLike, Scalar
@@ -878,7 +879,7 @@ def table(
     edges: Literal["open", "closed", "horizontal", "vertical"] = ...,
     **kwargs,
 ) -> Table: ...
-def text(x: float, y: float, s: str, fontdict: dict = ..., **kwargs) -> Text: ...
+def text(x: float, y: float, s: str, fontdict: TextPropertiesBase | None = None, **kwargs: Unpack[TextPropertiesBase]) -> Text: ...
 def tick_params(axis: Literal["x", "y", "both"] = ..., **kwargs): ...
 def ticklabel_format(
     *,
@@ -955,7 +956,7 @@ def xlabel(
     labelpad: float | None = None,
     *,
     loc: Literal["left", "center", "right"] | None = None,
-    **kwargs: Unpack[TextProperties],
+    **kwargs: Unpack[TextPropertiesWithPositions],
 ) -> Text: ...
 def ylabel(
     ylabel: str,
@@ -963,7 +964,7 @@ def ylabel(
     labelpad: float | None = None,
     *,
     loc: Literal["bottom", "center", "top"] | None = None,
-    **kwargs: Unpack[TextProperties],
+    **kwargs: Unpack[TextPropertiesWithPositions],
 ) -> Text: ...
 def xscale(
     value: Literal["linear", "log", "symlog", "logit"] | ScaleBase,
