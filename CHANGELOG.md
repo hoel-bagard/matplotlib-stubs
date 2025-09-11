@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.4 - 2025-09-11
+
+- Complete type hints for:
+  - `matplotlib.pyplot.subplots_adjust`
+  - `matplotlib.pyplot.subplots`
+  - `matplotlib.pyplot.subplot_mosaic`
+
 ## 0.3.3 - 2025-09-04
 
 - Complete `matplotlib.pyplot.text`'s type hints
