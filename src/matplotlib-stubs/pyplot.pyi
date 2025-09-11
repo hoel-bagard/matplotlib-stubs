@@ -6,6 +6,7 @@ from typing import Any, ContextManager, IO, Literal, overload, Unpack
 import numpy as np
 import numpy.typing as npt
 from matplotlib import rcParams as rcParams
+from matplotlib._stubs_utils._kwargs import FigureKW, GridspecKW, SubplotKW
 from matplotlib._stubs_utils._properties import (
     Line2DProperty,
     PathCollectionProperties,
@@ -127,99 +128,34 @@ def axes(arg: None | tuple = ..., **kwargs) -> Axes: ...
 def delaxes(ax: Axes = ...) -> None: ...
 def sca(ax: Axes) -> None: ...
 def cla() -> None: ...
-def subplot(*args, **kwargs) -> Axes: ...
+@overload
+def subplots(
+    nrows: Literal[1] = ...,
+    ncols: Literal[1] = ...,
+    *,
+    sharex: bool | Literal["none", "all", "row", "col"] = ...,
+    sharey: bool | Literal["none", "all", "row", "col"] = ...,
+    squeeze: Literal[True] = ...,
+    width_ratios: Sequence[float] | None = ...,
+    height_ratios: Sequence[float] | None = ...,
+    subplot_kw: SubplotKW | None = ...,
+    gridspec_kw: GridspecKW | None = ...,
+    **fig_kw: Unpack[FigureKW],
+) -> tuple[Figure, Axes]: ...
 @overload
 def subplots(
     nrows: int = ...,
     ncols: int = ...,
     *,
+    sharex: bool | Literal["none", "all", "row", "col"] = ...,
+    sharey: bool | Literal["none", "all", "row", "col"] = ...,
     squeeze: Literal[False],
-    sharex: bool | Literal["none", "all", "row", "col"] = ...,
-    sharey: bool | Literal["none", "all", "row", "col"] = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, np.ndarray]: ...
-@overload
-def subplots(
-    nrows: Literal[1] = ...,
-    ncols: Literal[1] = ...,
-    *,
-    sharex: bool | Literal["none", "all", "row", "col"] = ...,
-    sharey: bool | Literal["none", "all", "row", "col"] = ...,
-    squeeze: Literal[True] = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, Axes]: ...
-@overload
-def subplots(
-    nrows: Literal[1] = ...,
-    ncols: int = ...,
-    *,
-    sharex: bool | Literal["none", "all", "row", "col"] = ...,
-    sharey: bool | Literal["none", "all", "row", "col"] = ...,
-    squeeze: Literal[True] = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, np.ndarray]: ...
-@overload
-def subplots(
-    nrows: int = ...,
-    ncols: Literal[1] = ...,
-    *,
-    sharex: bool | Literal["none", "all", "row", "col"] = ...,
-    sharey: bool | Literal["none", "all", "row", "col"] = ...,
-    squeeze: Literal[True] = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, np.ndarray]: ...
-@overload
-def subplots(
-    *,
-    nrows: int = ...,
-    ncols: int = ...,
-    sharex: bool | Literal["none", "all", "row", "col"] = ...,
-    sharey: bool | Literal["none", "all", "row", "col"] = ...,
-    squeeze: Literal[True] = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, np.ndarray]: ...
-@overload
-def subplots(
-    *,
-    ncols: int = ...,
-    sharex: bool | Literal["none", "all", "row", "col"] = ...,
-    sharey: bool | Literal["none", "all", "row", "col"] = ...,
-    squeeze: Literal[True] = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, np.ndarray]: ...
-@overload
-def subplots(
-    nrows: int = ...,
-    *,
-    sharex: bool | Literal["none", "all", "row", "col"] = ...,
-    sharey: bool | Literal["none", "all", "row", "col"] = ...,
-    squeeze: Literal[True] = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, np.ndarray]: ...
-@overload
-def subplots(
-    *,
-    sharex: bool | Literal["none", "all", "row", "col"] = ...,
-    sharey: bool | Literal["none", "all", "row", "col"] = ...,
-    squeeze: Literal[True] = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, Axes]: ...
+    width_ratios: Sequence[float] | None = ...,
+    height_ratios: Sequence[float] | None = ...,
+    subplot_kw: SubplotKW | None = ...,
+    gridspec_kw: GridspecKW | None = ...,
+    **fig_kw: Unpack[FigureKW],
+) -> tuple[Figure, npt.NDArray[Any]]: ...
 @overload
 def subplots(
     nrows: int = ...,
@@ -228,19 +164,37 @@ def subplots(
     sharex: bool | Literal["none", "all", "row", "col"] = ...,
     sharey: bool | Literal["none", "all", "row", "col"] = ...,
     squeeze: bool = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
-    **fig_kw,
-) -> tuple[Figure, np.ndarray]: ...
+    width_ratios: Sequence[float] | None = ...,
+    height_ratios: Sequence[float] | None = ...,
+    subplot_kw: SubplotKW | None = ...,
+    gridspec_kw: GridspecKW | None = ...,
+    **fig_kw: Unpack[FigureKW],
+) -> tuple[Figure, Any]: ...
+def subplots(
+    nrows: int = 1,
+    ncols: int = 1,
+    *,
+    sharex: bool | Literal["none", "all", "row", "col"] = False,
+    sharey: bool | Literal["none", "all", "row", "col"] = False,
+    squeeze: bool = True,
+    width_ratios: Sequence[float] | None = None,
+    height_ratios: Sequence[float] | None = None,
+    subplot_kw: SubplotKW | None = None,
+    gridspec_kw: GridspecKW | None = None,
+    **fig_kw: Unpack[FigureKW],
+) -> tuple[Figure, Any]: ...
 def subplot_mosaic(
-    mosaic: list | str,
+    mosaic: list[list] | str,
     *,
     sharex: bool = ...,
     sharey: bool = ...,
-    subplot_kw: dict = ...,
-    gridspec_kw: dict = ...,
+    width_ratios: Sequence[float] | None = None,
+    height_ratios: Sequence[float] | None = None,
     empty_sentinel: object = ...,
-    **fig_kw,
+    subplot_kw: SubplotKW | None = None,
+    per_subplot_kw: dict[str | tuple[str, str], SubplotKW] | None = None,
+    gridspec_kw: GridspecKW | None = None,
+    **fig_kw: Unpack[FigureKW],
 ) -> tuple[Figure, dict[Text, Axes]]: ...
 def subplot2grid(
     shape: Sequence[int],
@@ -328,7 +282,7 @@ def subplots_adjust(
     top: float = ...,
     wspace: float = ...,
     hspace: float = ...,
-): ...
+) -> None: ...
 def suptitle(t: str, **kwargs) -> Text: ...
 def tight_layout(
     *,
