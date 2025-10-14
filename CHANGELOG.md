@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.5 - 2025-10-14
+
+Fix `matplotlib.pyplot.plot` to allow using datetime sequences.
+
 ## 0.3.4 - 2025-09-11
 
 - Complete type hints for:
