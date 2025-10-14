@@ -687,7 +687,7 @@ def pie(
     data=...,
 ): ...
 def plot(
-    *args: float | npt.ArrayLike | str,
+    *args: float | npt.ArrayLike | str | Sequence[datetime.datetime],
     fmt: str | None = None,
     scalex: bool = True,
     scaley: bool = True,
