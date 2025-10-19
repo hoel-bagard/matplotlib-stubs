@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.6 - 2025-10-19
+
+- Add `matplotlib.axes.Axes.set_xticks`
+- Fix `matplotlib.axes.Axes.bar` to support datetime sequences
+
 ## 0.3.5 - 2025-10-14
 
 Fix `matplotlib.pyplot.plot` to allow using datetime sequences.
