@@ -1,12 +1,14 @@
 import datetime
 from collections.abc import Callable, Sequence
-from typing import Literal, overload
+from typing import Iterable, Literal, overload, Unpack
 
 import numpy as np
+from matplotlib._stubs_utils._kwargs import NoKW
+from matplotlib._stubs_utils._properties import TextPropertiesBase
 from matplotlib._stubs_utils._typing import ArrayLike, Color, Scalar
 from matplotlib.artist import Artist
 from matplotlib.axes._secondary_axes import SecondaryAxis
-from matplotlib.axis import XAxis, YAxis
+from matplotlib.axis import Tick, XAxis, YAxis
 from matplotlib.backend_tools import Cursors
 from matplotlib.collections import (
     BrokenBarHCollection,
@@ -63,6 +65,11 @@ class Axes(_AxesBase):
         y: float = ...,
         **kwargs,
     ) -> Text: ...
+    @overload
+    def set_xticks(self, ticks: ArrayLike | Sequence[datetime.datetime], labels: Iterable[str] = ..., *, minor: bool = False, **kwargs: Unpack[TextPropertiesBase]) -> list[Tick]: ...
+    @overload
+    def set_xticks(self, ticks: ArrayLike | Sequence[datetime.datetime], labels: None = ..., *, minor: bool = False, **kwargs: Unpack[NoKW]) -> list[Tick]: ...
+    def set_xticks(self, ticks: ArrayLike | Sequence[datetime.datetime], labels: Iterable[str] | None = ..., *, minor: bool = False, **kwargs: Unpack[TextPropertiesBase]) -> list[Tick]: ...
     def get_legend_handles_labels(self, legend_handler_map=...) -> tuple[list, list]: ...
     def legend(self, *args, **kwargs) -> Legend: ...
     def inset_axes(
@@ -231,7 +238,7 @@ class Axes(_AxesBase):
     ) -> list[Line2D]: ...
     def bar(
         self,
-        x: float | ArrayLike,
+        x: float | ArrayLike | Sequence[datetime.datetime],
         height: float | ArrayLike,
         width: float | ArrayLike = ...,
         bottom: float | ArrayLike = ...,
@@ -241,7 +248,7 @@ class Axes(_AxesBase):
     ) -> BarContainer: ...
     def barh(
         self,
-        y: float | ArrayLike,
+        y: float | ArrayLike | Sequence[datetime.datetime],
         width: float | ArrayLike,
         height: float | ArrayLike = ...,
         left: float | ArrayLike = ...,

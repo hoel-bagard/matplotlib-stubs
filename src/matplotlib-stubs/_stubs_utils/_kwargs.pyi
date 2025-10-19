@@ -37,3 +37,5 @@ class FigureKW(TypedDict, total=False):
     FigureClass: type[Figure]
     clear: bool
     layout: Literal["constrainedcompressed", "tight", "none"] | LayoutEngine | None
+
+class NoKW(TypedDict): ...
