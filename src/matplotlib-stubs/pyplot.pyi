@@ -324,7 +324,7 @@ def axhline(
     y: float = ...,
     xmin: float = ...,
     xmax: float = ...,
-    **kwargs,
+    **kwargs: Unpack[Line2DProperty],
 ) -> Line2D: ...
 def axhspan(
     ymin: float,
