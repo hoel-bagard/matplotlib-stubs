@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.7 - 2025-10-21
+
+- Add `matplotlib.pyplot.axhline`'s kwargs type
+
 ## 0.3.6 - 2025-10-19
 
 - Add `matplotlib.axes.Axes.set_xticks`
