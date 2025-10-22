@@ -1,6 +1,6 @@
-import datetime
 import os
 from collections.abc import Callable, Sequence
+from datetime import datetime
 from typing import Any, ContextManager, IO, Literal, overload, Unpack
 
 import numpy as np
@@ -208,7 +208,91 @@ def twinx(ax: Axes = ...) -> Axes: ...
 def twiny(ax: Axes = ...) -> Axes: ...
 def subplot_tool(targetfig: Figure = ...) -> SubplotTool: ...
 def box(on: bool | None = ...): ...
+@overload
+def xlim() -> tuple[float, float]: ...
+@overload
+def xlim(
+    left: None = None,
+    right: None = None,
+    *,
+    emit: bool = True,
+    auto: bool | None = False,
+    xmin: float | datetime | tuple[float, float] | tuple[datetime, datetime] | None = None,
+    xmax: float | datetime | None = None,
+) -> tuple[float, float]: ...
+@overload
+def xlim(
+    left: None = None,
+    right: float | datetime | None = None,
+    *,
+    emit: bool = True,
+    auto: bool | None = False,
+    xmin: float | datetime | tuple[float, float] | tuple[datetime, datetime] | None = None,
+    xmax: None = None,
+) -> tuple[float, float]: ...
+@overload
+def xlim(
+    left: float | datetime | tuple[float, float] | tuple[datetime, datetime] | None = None,
+    right: None = None,
+    *,
+    emit: bool = True,
+    auto: bool | None = False,
+    xmin: None = None,
+    xmax: float | datetime | None = None,
+) -> tuple[float, float]: ...
+@overload
+def xlim(
+    left: float | datetime | tuple[float, float] | tuple[datetime, datetime] | None = None,
+    right: float | datetime | None = None,
+    *,
+    emit: bool = True,
+    auto: bool | None = False,
+    xmin: None = None,
+    xmax: None = None,
+) -> tuple[float, float]: ...
 def xlim(*args, **kwargs) -> tuple[float, float]: ...
+@overload
+def ylim() -> tuple[float, float]: ...
+@overload
+def ylim(
+    bottom: None = None,
+    top: None = None,
+    *,
+    emit: bool = True,
+    auto: bool | None = False,
+    ymin: float | datetime | tuple[float, float] | tuple[datetime, datetime] | None = None,
+    ymax: float | datetime | None = None,
+) -> tuple[float, float]: ...
+@overload
+def ylim(
+    bottom: None = None,
+    top: float | datetime | None = None,
+    *,
+    emit: bool = True,
+    auto: bool | None = False,
+    ymin: float | datetime | tuple[float, float] | tuple[datetime, datetime] | None = None,
+    ymax: None = None,
+) -> tuple[float, float]: ...
+@overload
+def ylim(
+    bottom: float | datetime | tuple[float, float] | tuple[datetime, datetime] | None = None,
+    top: None = None,
+    *,
+    emit: bool = True,
+    auto: bool | None = False,
+    ymin: None = None,
+    ymax: float | datetime | None = None,
+) -> tuple[float, float]: ...
+@overload
+def ylim(
+    bottom: float | datetime | tuple[float, float] | tuple[datetime, datetime] | None = None,
+    top: float | datetime | None = None,
+    *,
+    emit: bool = True,
+    auto: bool | None = False,
+    ymin: None = None,
+    ymax: None = None,
+) -> tuple[float, float]: ...
 def ylim(*args, **kwargs) -> tuple[float, float]: ...
 def xticks(
     ticks: ArrayLike = ...,
@@ -687,7 +771,7 @@ def pie(
     data=...,
 ): ...
 def plot(
-    *args: float | npt.ArrayLike | str | Sequence[datetime.datetime],
+    *args: float | npt.ArrayLike | str | Sequence[datetime],
     fmt: str | None = None,
     scalex: bool = True,
     scaley: bool = True,
@@ -697,7 +781,7 @@ def plot_date(
     x: ArrayLike,
     y: ArrayLike,
     fmt: str = ...,
-    tz: datetime.tzinfo = ...,
+    tz: tzinfo = ...,
     xdate: bool = ...,
     ydate: bool = ...,
     *,
