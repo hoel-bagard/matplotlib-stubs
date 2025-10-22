@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.9 - 2025-10-22
+
+- Fix broken import in `matplotlib.pyplot.plot_date`
+
 ## 0.3.8 - 2025-10-22
 
 - Add `matplotlib.pyplot.xlim` and `matplotlib.pyplot.ylim` overloads, including datetime support
