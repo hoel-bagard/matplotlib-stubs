@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.8 - 2025-10-22
+
+- Add `matplotlib.pyplot.xlim` and `matplotlib.pyplot.ylim` overloads, including datetime support
+
 ## 0.3.7 - 2025-10-21
 
 - Add `matplotlib.pyplot.axhline`'s kwargs type
