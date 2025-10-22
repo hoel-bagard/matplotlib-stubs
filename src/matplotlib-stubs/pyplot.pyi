@@ -699,7 +699,16 @@ def locator_params(
     tight: bool | None = ...,
     **kwargs,
 ): ...
-def loglog(*args, **kwargs) -> list: ...
+def loglog(
+    *args: float | npt.ArrayLike | str | Sequence[datetime],
+    base: float = 10,
+    subs: Sequence[float] | None = None,
+    nonpositive: Literal["mask", "clip"] = "clip",
+    fmt: str | None = None,
+    scalex: bool = True,
+    scaley: bool = True,
+    **kwargs: Unpack[Line2DProperty],
+) -> list[Line2D]: ...
 def magnitude_spectrum(
     x: Sequence,
     Fs: float = ...,
