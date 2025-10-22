@@ -1,6 +1,6 @@
 import os
 from collections.abc import Callable, Sequence
-from datetime import datetime
+from datetime import datetime, tzinfo
 from typing import Any, ContextManager, IO, Literal, overload, Unpack
 
 import numpy as np
