@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.10 - 2025-10-22
+
+- Add `matplotlib.pyplot.loglog` type hints
+
 ## 0.3.9 - 2025-10-22
 
 - Fix broken import in `matplotlib.pyplot.plot_date`
