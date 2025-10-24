@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.11 - 2025-10-23
+
+- Add type hints for `matplotlib.pyplot`'s `show`, `tight_layout`, `bar`, `xticks` and `yticks`
+
 ## 0.3.10 - 2025-10-22
 
 - Add `matplotlib.pyplot.loglog` type hints
