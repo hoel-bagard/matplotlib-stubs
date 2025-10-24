@@ -10,11 +10,13 @@ from matplotlib._stubs_utils._kwargs import FigureKW, GridspecKW, SubplotKW
 from matplotlib._stubs_utils._properties import (
     Line2DProperty,
     PathCollectionProperties,
+    RectangleProperties,
     TextPropertiesBase,
     TextPropertiesWithPositions,
     TitleTextProperties,
 )
 from matplotlib._stubs_utils._typing import ArrayLike, Color, FileLike, PathLike, Scalar
+from matplotlib.axis import Tick
 from matplotlib.colorizer import Colorizer
 from matplotlib.contour import QuadContourSet
 from matplotlib.layout_engine import LayoutEngine
@@ -57,7 +59,7 @@ def findobj(o=..., match=..., include_self: bool = ...) -> list: ...
 def switch_backend(newbackend: str) -> None: ...
 def new_figure_manager(*args, **kwargs) -> FigureManagerBase: ...
 def draw_if_interactive(*args, **kwargs): ...
-def show(*args, **kwargs): ...
+def show(*, block: bool | None = None) -> None: ...
 def isinteractive() -> bool: ...
 
 class _IoffContext:
@@ -294,16 +296,8 @@ def ylim(
     ymax: None = None,
 ) -> tuple[float, float]: ...
 def ylim(*args, **kwargs) -> tuple[float, float]: ...
-def xticks(
-    ticks: ArrayLike = ...,
-    labels: ArrayLike = ...,
-    **kwargs,
-) -> tuple[list, list[Text]]: ...
-def yticks(
-    ticks: ArrayLike = ...,
-    labels: ArrayLike = ...,
-    **kwargs,
-) -> tuple[list, list[Text]]: ...
+def xticks(ticks: ArrayLike | None = None, labels: Sequence[str] | None = None, *, minor: bool = False, **kwargs: Unpack[TextPropertiesBase]) -> tuple[list[Tick], list[Text]]: ...
+def yticks(ticks: ArrayLike | None = None, labels: Sequence[str] | None = None, *, minor: bool = False, **kwargs: Unpack[TextPropertiesBase]) -> tuple[list[Tick], list[Text]]: ...
 def rgrids(
     radii: Sequence[float] = ...,
     labels: Sequence[str] | None = ...,
@@ -370,11 +364,11 @@ def subplots_adjust(
 def suptitle(t: str, **kwargs) -> Text: ...
 def tight_layout(
     *,
-    pad: float = ...,
-    h_pad: float = ...,
-    w_pad: float = ...,
-    rect: Sequence[float] = ...,
-): ...
+    pad: float = 1.08,
+    h_pad: float | None = None,
+    w_pad: float | None = None,
+    rect: tuple[float, float, float, float] | None = None,
+) -> None: ...
 def waitforbuttonpress(timeout=...): ...
 def acorr(x: ArrayLike, *, data=..., **kwargs): ...
 def angle_spectrum(
@@ -445,8 +439,8 @@ def bar(
     bottom: float | ArrayLike = ...,
     *,
     align: Literal["center", "edge"] = ...,
-    data=...,
-    **kwargs,
+    data: None | Sequence[Any] = None,
+    **kwargs: Unpack[RectangleProperties],
 ) -> BarContainer: ...
 def barbs(*args, data=..., **kwargs): ...
 def barh(

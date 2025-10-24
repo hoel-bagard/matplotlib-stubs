@@ -14,6 +14,51 @@ from matplotlib.patheffects import AbstractPathEffect
 from matplotlib.transforms import BboxBase, Transform
 from matplotlib.typing import ColorType
 
+class RectangleProperties(TypedDict, total=False):
+    agg_filter: Callable[[npt.NDArray, float], tuple[npt.NDArray, int, int]]
+    alpha: float
+    angle: float
+    animated: bool
+    antialiased: bool | None
+    aa: bool | None
+    bounds: tuple[float, float, float, float]
+    capstyle: CapStyle | Literal["butt", "projecting", "round"]
+    clip_box: BboxBase | None
+    clip_on: bool
+    clip_path: Path | tuple[Path, Transform] | None
+    color: ColorType
+    edgecolor: ColorType | None
+    ec: ColorType | None
+    facecolor: ColorType | None
+    fc: ColorType | None
+    figure: Figure | SubFigure
+    fill: bool
+    gid: str
+    hatch: Literal["/", "\\", "|", "-", "+", "x", "o", "O", ".", "*"]
+    hatch_linewidth: float
+    # height: float
+    in_layout: bool
+    joinstyle: JoinStyle | Literal["miter", "round", "bevel"]
+    label: object
+    linestyle: Literal["-", "--", "-.", ":", ""] | tuple[float, list[float]] | None
+    ls: Literal["-", "--", "-.", ":", ""] | tuple[float, list[float]] | None
+    linewidth: float | None
+    lw: float | None
+    mouseover: bool
+    path_effects: list[AbstractPathEffect]
+    picker: bool | float | None | Callable
+    rasterized: bool
+    sketch_params: SketchParams
+    snap: bool | None
+    transform: Transform
+    url: str
+    visible: bool
+    # width: float
+    # x: float
+    xy: tuple[float, float]
+    y: float
+    zorder: float
+
 class PatchProperties(TypedDict, total=False):
     agg_filter: Callable[[npt.NDArray, float], tuple[npt.NDArray, int, int]]
     alpha: float
